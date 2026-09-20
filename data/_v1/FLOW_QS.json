@@ -1,0 +1,123 @@
+[
+  {
+    "id": "F1",
+    "q": "Hangi aktivitelerde zamanın nasıl geçtiğini fark etmiyorsun?",
+    "max": 3,
+    "opts": [
+      {
+        "t": "R",
+        "text": "Bir şeyler inşa etmek, kurmak, tamir etmek"
+      },
+      {
+        "t": "I",
+        "text": "Merak ettiğim bir konuyu saatlerce araştırmak"
+      },
+      {
+        "t": "A",
+        "text": "Çizmek, tasarlamak, içerik üretmek"
+      },
+      {
+        "t": "S",
+        "text": "İnsanlarla derin sohbetler etmek"
+      },
+      {
+        "t": "E",
+        "text": "Bir etkinliği organize edip insanları dahil etmek"
+      },
+      {
+        "t": "C",
+        "text": "Arşiv düzenlemek, listeler ve planlar yapmak"
+      },
+      {
+        "t": "I",
+        "text": "Bulmaca, mantık oyunları, zor problemler çözmek"
+      },
+      {
+        "t": "A",
+        "text": "Müzik, film ve hikâye dünyalarına dalmak"
+      },
+      {
+        "t": "S",
+        "text": "Birine bir şey öğretmek"
+      },
+      {
+        "t": "E",
+        "text": "Tartışmak, fikir savunmak, müzakere etmek"
+      },
+      {
+        "t": "R",
+        "text": "Lego, maket, elektronik parçalarla uğraşmak"
+      },
+      {
+        "t": "C",
+        "text": "Tablolarla ve düzenli verilerle oynamak"
+      }
+    ]
+  },
+  {
+    "id": "F2",
+    "q": "Kimse istemeden, kendi kendine öğrendiğin ya da takip ettiğin şeyler hangileri?",
+    "max": 3,
+    "opts": [
+      {
+        "t": "R",
+        "text": "Yeni bir cihazı ya da aleti kurcalayıp öğrenmek"
+      },
+      {
+        "t": "I",
+        "text": "Bilimsel konular, belgeseller, derin makaleler"
+      },
+      {
+        "t": "I",
+        "text": "Kodlama ve programlama"
+      },
+      {
+        "t": "A",
+        "text": "Tasarım, video kurgu ya da müzik üretim araçları"
+      },
+      {
+        "t": "S",
+        "text": "Psikoloji, insan davranışları, iletişim"
+      },
+      {
+        "t": "E",
+        "text": "Yatırım, girişimcilik, para yönetimi"
+      },
+      {
+        "t": "C",
+        "text": "Verimlilik sistemleri, not ve plan uygulamaları"
+      }
+    ]
+  },
+  {
+    "id": "F3",
+    "q": "Hangisini yaptıktan sonra yorulmak yerine enerji dolmuş hissedersin?",
+    "max": 2,
+    "opts": [
+      {
+        "t": "R",
+        "text": "Elimle somut bir şeyi bitirmek"
+      },
+      {
+        "t": "I",
+        "text": "Kafamı kurcalayan zor bir soruyu çözmek"
+      },
+      {
+        "t": "A",
+        "text": "Ortaya yaratıcı, özgün bir şey çıkarmak"
+      },
+      {
+        "t": "S",
+        "text": "Birinin gününü gerçekten iyileştirmek"
+      },
+      {
+        "t": "E",
+        "text": "İnsanları bir hedefe ikna etmek, sahnede olmak"
+      },
+      {
+        "t": "C",
+        "text": "Dağınık bir işi tertemiz bir düzene sokmak"
+      }
+    ]
+  }
+]

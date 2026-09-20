@@ -1,0 +1,42 @@
+[
+  {
+    "id": "c_math",
+    "text": "Üniversite düzeyinde matematik (ör. kalkülüs)"
+  },
+  {
+    "id": "c_physics",
+    "text": "Fizik ve mekanik konular"
+  },
+  {
+    "id": "c_coding",
+    "text": "Kodlama ve algoritmalar"
+  },
+  {
+    "id": "c_bio",
+    "text": "Biyoloji ve kimya"
+  },
+  {
+    "id": "c_design",
+    "text": "Görsel tasarım ve estetik"
+  },
+  {
+    "id": "c_writing",
+    "text": "Yazarak anlatım, metin üretme"
+  },
+  {
+    "id": "c_speaking",
+    "text": "Topluluk önünde sunum ve ikna"
+  },
+  {
+    "id": "c_org",
+    "text": "Organizasyon ve planlama"
+  },
+  {
+    "id": "c_hands",
+    "text": "El becerisi gerektiren pratik işler"
+  },
+  {
+    "id": "c_english",
+    "text": "İngilizce (eğitim dili olarak)"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "climate",
+    "text": "İklim krizi ve temiz enerji"
+  },
+  {
+    "id": "health",
+    "text": "Hastalıkların tedavisi ve sağlıklı uzun yaşam"
+  },
+  {
+    "id": "ai",
+    "text": "Yapay zekânın güvenli ve adil gelişimi"
+  },
+  {
+    "id": "education",
+    "text": "Eğitimde fırsat eşitliği"
+  },
+  {
+    "id": "space",
+    "text": "Uzayın keşfi"
+  },
+  {
+    "id": "food",
+    "text": "Gıda ve su güvenliği"
+  },
+  {
+    "id": "cyber",
+    "text": "Siber güvenlik ve dijital haklar"
+  },
+  {
+    "id": "finance",
+    "text": "Yoksulluk ve finansal erişim"
+  }
+]

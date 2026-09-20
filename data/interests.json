@@ -1,0 +1,92 @@
+{
+  "_comment": "Önemsenen dünya sorunları ve heyecan veren teknolojiler (çoklu seçim). v2'de 'care' ve 'agritech' eklendi.",
+  "_updated": "2026-09-20",
+  "problems": [
+    {
+      "id": "climate",
+      "text": "İklim krizi ve temiz enerji"
+    },
+    {
+      "id": "health",
+      "text": "Hastalıkların tedavisi ve sağlıklı uzun yaşam"
+    },
+    {
+      "id": "ai",
+      "text": "Yapay zekânın güvenli ve adil gelişimi"
+    },
+    {
+      "id": "education",
+      "text": "Eğitimde fırsat eşitliği"
+    },
+    {
+      "id": "space",
+      "text": "Uzayın keşfi"
+    },
+    {
+      "id": "food",
+      "text": "Gıda ve su güvenliği"
+    },
+    {
+      "id": "cyber",
+      "text": "Siber güvenlik ve dijital haklar"
+    },
+    {
+      "id": "finance",
+      "text": "Yoksulluk ve finansal erişim"
+    },
+    {
+      "id": "care",
+      "text": "Yaşlanan nüfus, bakım ve ruh sağlığı"
+    }
+  ],
+  "techs": [
+    {
+      "id": "ai",
+      "text": "Yapay zekâ"
+    },
+    {
+      "id": "robotics",
+      "text": "Robotik ve otonom sistemler"
+    },
+    {
+      "id": "biotech",
+      "text": "Biyoteknoloji ve genetik"
+    },
+    {
+      "id": "quantum",
+      "text": "Kuantum bilişim"
+    },
+    {
+      "id": "space",
+      "text": "Uzay teknolojileri"
+    },
+    {
+      "id": "energy",
+      "text": "Yenilenebilir enerji"
+    },
+    {
+      "id": "bci",
+      "text": "Beyin-bilgisayar arayüzleri"
+    },
+    {
+      "id": "fintech",
+      "text": "FinTech ve dijital finans"
+    },
+    {
+      "id": "games",
+      "text": "Oyun ve sanal dünyalar"
+    },
+    {
+      "id": "healthtech",
+      "text": "Sağlık teknolojileri"
+    },
+    {
+      "id": "cybertech",
+      "text": "Siber güvenlik"
+    },
+    {
+      "id": "agritech",
+      "text": "Tarım ve gıda teknolojileri"
+    }
+  ]
+}

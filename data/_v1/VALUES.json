@@ -1,0 +1,38 @@
+[
+  {
+    "id": "achievement",
+    "title": "Başarı & Ustalık",
+    "desc": "Zor bir işte gerçekten iyi olmak, yeteneklerimi sonuna kadar kullanmak",
+    "en": "Achievement"
+  },
+  {
+    "id": "independence",
+    "title": "Bağımsızlık",
+    "desc": "Kendi kararlarımı vermek, kendi tarzımla ve özgürce çalışmak",
+    "en": "Independence"
+  },
+  {
+    "id": "recognition",
+    "title": "Tanınma & Statü",
+    "desc": "Yükselmek, saygı gören bir konumda olmak, başarımın görünür olması",
+    "en": "Recognition"
+  },
+  {
+    "id": "relationships",
+    "title": "İnsanlara Dokunmak",
+    "desc": "İşimin başkalarının hayatında somut bir iyilik yaratması",
+    "en": "Relationships / Service"
+  },
+  {
+    "id": "conditions",
+    "title": "Güvence & Kazanç",
+    "desc": "İyi kazanç, iş güvencesi ve rahat çalışma koşulları",
+    "en": "Working Conditions"
+  },
+  {
+    "id": "support",
+    "title": "İyi Ekip & Destek",
+    "desc": "Beni destekleyen bir yönetim ve sıcak bir ekiple çalışmak",
+    "en": "Support"
+  }
+]

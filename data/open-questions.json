@@ -1,0 +1,22 @@
+{
+  "_comment": "Açık uçlu sorular. Skora girmez; rapora ve YZ'ye devredilen derin analiz çıktısına girer.",
+  "_updated": "2026-09-20",
+  "questions": [
+    {
+      "id": "O1",
+      "q": "Para ve not derdi olmasaydı bile yapmaya devam edeceğin 3 şey nedir?"
+    },
+    {
+      "id": "O2",
+      "q": "İnsanlar (arkadaşların, ailen) en çok hangi konularda senden yardım ister?"
+    },
+    {
+      "id": "O3",
+      "q": "10 yıl sonra sıradan ama güzel bir iş gününü hayal et. O gün neler yapıyorsun? Kısaca anlat."
+    },
+    {
+      "id": "O4",
+      "q": "Hiç denemediğin ama içten içe merak ettiğin bir iş ya da alan var mı? Neden denemedin?"
+    }
+  ]
+}

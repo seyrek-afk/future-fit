@@ -1,0 +1,38 @@
+# Future-Fit — Render Static Site blueprint
+#
+# Uygulama saf bir Vite SPA'sıdır → Render'da "Static Site" olarak yayınlanır (CDN, çalışma zamanı yok).
+#
+# İLK KURULUM (yalnızca bir kez, Render hesabı gerektirir — koddan yapılamaz):
+#   Render Dashboard → New + → Blueprint → bu repoyu seç → render.yaml otomatik okunur → Apply.
+#   Bağlandıktan sonra main'e her push OTOMATİK deploy eder (autoDeploy varsayılan açık).
+#
+# ENV DEĞİŞKENİ YOK — bu kasıtlıdır. Uygulama çalışma zamanında hiçbir servise bağlanmaz,
+# hiçbir kişisel veri toplamaz. Buraya anahtar eklemek gerekiyorsa önce tasarımı sorgula.
+
+services:
+  - type: web
+    name: future-fit
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: false
+
+    # SPA fallback — paylaşım bağlantıları (#r=...) ve derin linkler index.html'e düşsün
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Permissions-Policy
+        value: "camera=(), microphone=(), geolocation=()"

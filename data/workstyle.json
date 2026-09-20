@@ -1,0 +1,122 @@
+{
+  "_comment": "Prediger eksenleri (insan↔nesne, veri↔fikir) ve çalışma ortamı tercihleri. Ortam tercihleri skora girmez, rapora girer.",
+  "_updated": "2026-09-20",
+  "prediger": [
+    {
+      "id": "P1",
+      "axis": "pt",
+      "q": "Bir teknoloji fuarındasın. Hangisi sana daha çekici gelir?",
+      "a": {
+        "text": "Mucitlerle ve standdaki insanlarla sohbet etmek",
+        "side": "people"
+      },
+      "b": {
+        "text": "Sergilenen makineyi yakından inceleyip kurcalamak",
+        "side": "things"
+      }
+    },
+    {
+      "id": "P2",
+      "axis": "pt",
+      "q": "Grup projesinde sana daha doğal gelen taraf hangisi?",
+      "a": {
+        "text": "Ekipteki insanları koordine etmek ve iletişimi yürütmek",
+        "side": "people"
+      },
+      "b": {
+        "text": "İşin teknik kısmını üstlenip üretime odaklanmak",
+        "side": "things"
+      }
+    },
+    {
+      "id": "P3",
+      "axis": "pt",
+      "q": "Yorucu bir günün sonunda seni toparlayan hangisi olur?",
+      "a": {
+        "text": "Arkadaşlarımla vakit geçirmek, sohbet etmek",
+        "side": "people"
+      },
+      "b": {
+        "text": "Tek başıma bir şey kurcalamak, üretmek, oynamak",
+        "side": "things"
+      }
+    },
+    {
+      "id": "P4",
+      "axis": "di",
+      "q": "Hangisi sana daha tatmin edici gelir?",
+      "a": {
+        "text": "Dağınık bir şeyi kusursuz düzenlenmiş hale getirmek",
+        "side": "data"
+      },
+      "b": {
+        "text": "Kimsenin denemediği yepyeni bir fikir bulmak",
+        "side": "ideas"
+      }
+    },
+    {
+      "id": "P5",
+      "axis": "di",
+      "q": "Bir problemi çözerken önce ne yaparsın?",
+      "a": {
+        "text": "Eldeki verilere, örneklere ve kanıtlara bakarım",
+        "side": "data"
+      },
+      "b": {
+        "text": "Aklıma gelen olasılıkları ve senaryoları hayal ederim",
+        "side": "ideas"
+      }
+    },
+    {
+      "id": "P6",
+      "axis": "di",
+      "q": "Hangi ödev sana daha çekici gelir?",
+      "a": {
+        "text": "Mevcut bilgiyi derleyip eksiksiz ve düzgün bir rapor yazmak",
+        "side": "data"
+      },
+      "b": {
+        "text": "Açık uçlu bir soruya kendi özgün cevabımı üretmek",
+        "side": "ideas"
+      }
+    }
+  ],
+  "environment": [
+    {
+      "id": "E1",
+      "q": "Çalışma ritmi olarak hangisi sana daha uygun?",
+      "a": "Düzenli ve öngörülebilir bir program",
+      "b": "Proje bazlı yoğun dönemler, arada esneklik"
+    },
+    {
+      "id": "E2",
+      "q": "Hangi ortamda daha mutlu olursun?",
+      "a": "Ofis, laboratuvar, stüdyo gibi kapalı ortam",
+      "b": "Saha, açık hava, hareket halinde"
+    },
+    {
+      "id": "E3",
+      "q": "Günün büyük kısmında hangisini tercih edersin?",
+      "a": "Kalabalık bir ekiple sürekli etkileşim",
+      "b": "Derin odakla çoğunlukla kendi başıma çalışmak"
+    },
+    {
+      "id": "E4",
+      "q": "Hangisi sana daha cazip gelir?",
+      "a": "Büyük, köklü bir kurumda güvence ve düzen",
+      "b": "Küçük, hızlı bir girişimde dinamizm ve risk"
+    },
+    {
+      "id": "E5",
+      "q": "Üretme şekli olarak hangisi daha çok senin?",
+      "a": "Ekran başında dijital şeyler üretmek",
+      "b": "Elle dokunulabilir, fiziksel şeyler üretmek"
+    },
+    {
+      "id": "E6",
+      "q": "Hangi tempo sana daha uygun?",
+      "a": "Yüksek tempolu, rekabetçi, iddialı bir ortam",
+      "b": "Sakin, dengeli ve sürdürülebilir bir tempo"
+    }
+  ]
+}

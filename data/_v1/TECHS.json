@@ -1,0 +1,46 @@
+[
+  {
+    "id": "ai",
+    "text": "Yapay zekâ"
+  },
+  {
+    "id": "robotics",
+    "text": "Robotik ve otonom sistemler"
+  },
+  {
+    "id": "biotech",
+    "text": "Biyoteknoloji ve genetik"
+  },
+  {
+    "id": "quantum",
+    "text": "Kuantum bilişim"
+  },
+  {
+    "id": "space",
+    "text": "Uzay teknolojileri"
+  },
+  {
+    "id": "energy",
+    "text": "Yenilenebilir enerji"
+  },
+  {
+    "id": "bci",
+    "text": "Beyin-bilgisayar arayüzleri"
+  },
+  {
+    "id": "fintech",
+    "text": "FinTech ve dijital finans"
+  },
+  {
+    "id": "games",
+    "text": "Oyun ve sanal dünyalar"
+  },
+  {
+    "id": "healthtech",
+    "text": "Sağlık teknolojileri"
+  },
+  {
+    "id": "cybertech",
+    "text": "Siber güvenlik"
+  }
+]

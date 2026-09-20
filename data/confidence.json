@@ -1,0 +1,61 @@
+{
+  "_comment": "Öz-yeterlik (1-5). v2'de c_care ve c_detail eklendi: bakım/eğitim ve teknik-altyapı kümelerinin eşleşmesi için gerekli.",
+  "_updated": "2026-09-20",
+  "labels": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "items": [
+    {
+      "id": "c_math",
+      "text": "Üniversite düzeyinde matematik (ör. kalkülüs)"
+    },
+    {
+      "id": "c_physics",
+      "text": "Fizik ve mekanik konular"
+    },
+    {
+      "id": "c_coding",
+      "text": "Kodlama ve algoritmalar"
+    },
+    {
+      "id": "c_bio",
+      "text": "Biyoloji ve kimya"
+    },
+    {
+      "id": "c_design",
+      "text": "Görsel tasarım ve estetik"
+    },
+    {
+      "id": "c_writing",
+      "text": "Yazarak anlatım, metin üretme"
+    },
+    {
+      "id": "c_speaking",
+      "text": "Topluluk önünde sunum ve ikna"
+    },
+    {
+      "id": "c_org",
+      "text": "Organizasyon ve planlama"
+    },
+    {
+      "id": "c_hands",
+      "text": "El becerisi gerektiren pratik işler"
+    },
+    {
+      "id": "c_english",
+      "text": "İngilizce (eğitim dili olarak)"
+    },
+    {
+      "id": "c_care",
+      "text": "Birine sabırla, birebir ilgilenmek ve destek olmak"
+    },
+    {
+      "id": "c_detail",
+      "text": "Ayrıntıya dikkat ve titizlik gerektiren işler"
+    }
+  ]
+}

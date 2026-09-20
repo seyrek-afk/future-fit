@@ -1,0 +1,182 @@
+[
+  {
+    "id": "L1",
+    "t": "R",
+    "text": "Bir drone'u parçalarından birleştirip uçurmak"
+  },
+  {
+    "id": "L2",
+    "t": "I",
+    "text": "Bir veri setini inceleyip içindeki gizli örüntüyü bulmak"
+  },
+  {
+    "id": "L3",
+    "t": "A",
+    "text": "Bir uygulamanın görünümünü ve arayüzünü tasarlamak"
+  },
+  {
+    "id": "L4",
+    "t": "S",
+    "text": "Küçük bir öğrenciye anlamadığı konuyu anlayana kadar anlatmak"
+  },
+  {
+    "id": "L5",
+    "t": "E",
+    "text": "Bir ürün fikrini jüri önünde sunmak"
+  },
+  {
+    "id": "L6",
+    "t": "C",
+    "text": "Bir etkinliğin ayrıntılı planını ve kontrol listesini hazırlamak"
+  },
+  {
+    "id": "L7",
+    "t": "R",
+    "text": "Kendi oyun bilgisayarını parçalarını seçerek toplamak"
+  },
+  {
+    "id": "L8",
+    "t": "I",
+    "text": "Bir yapay zekâ modelinin neden yanlış cevap verdiğini bulmaya çalışmak"
+  },
+  {
+    "id": "L9",
+    "t": "A",
+    "text": "Kendi hikâyenle bir video çekip kurgulamak"
+  },
+  {
+    "id": "L10",
+    "t": "S",
+    "text": "Arkadaşlarının kişisel sorunlarını dinleyip destek olmak"
+  },
+  {
+    "id": "L11",
+    "t": "E",
+    "text": "Okul etkinliği için bir firmayla sponsorluk görüşmesi yapmak"
+  },
+  {
+    "id": "L12",
+    "t": "C",
+    "text": "Bir kulübün bütçesini ve harcamalarını tabloda takip etmek"
+  },
+  {
+    "id": "L13",
+    "t": "R",
+    "text": "3D yazıcıyla çalışan bir parça tasarlayıp basmak"
+  },
+  {
+    "id": "L14",
+    "t": "I",
+    "text": "Laboratuvarda deney yapıp sonuçlarını analiz etmek"
+  },
+  {
+    "id": "L15",
+    "t": "A",
+    "text": "Bir oyunun dünyasını ve karakterlerini hayal edip tasarlamak"
+  },
+  {
+    "id": "L16",
+    "t": "S",
+    "text": "Bir gönüllülük projesinde insanlara doğrudan yardım etmek"
+  },
+  {
+    "id": "L17",
+    "t": "E",
+    "text": "Bir proje ekibini yönetip görev dağılımı yapmak"
+  },
+  {
+    "id": "L18",
+    "t": "C",
+    "text": "Dağınık bir dijital arşivi herkesin kolayca bulacağı şekilde düzenlemek"
+  },
+  {
+    "id": "L19",
+    "t": "R",
+    "text": "Bozulan bir cihazı söküp arızayı bulmak ve onarmak"
+  },
+  {
+    "id": "L20",
+    "t": "I",
+    "text": "Zor bir matematik problemini farklı yollarla çözmeyi denemek"
+  },
+  {
+    "id": "L21",
+    "t": "A",
+    "text": "Resim, illüstrasyon veya dijital çizim yapmak"
+  },
+  {
+    "id": "L22",
+    "t": "S",
+    "text": "Yeni gelen birine ortamı tanıtıp uyum sağlamasına yardımcı olmak"
+  },
+  {
+    "id": "L23",
+    "t": "E",
+    "text": "Bir tartışmada insanları kendi fikrine ikna etmek"
+  },
+  {
+    "id": "L24",
+    "t": "C",
+    "text": "Karmaşık verileri düzenli ve okunaklı tablolara dönüştürmek"
+  },
+  {
+    "id": "L25",
+    "t": "R",
+    "text": "Bir robotun mekanik parçalarını kurup çalıştırmak"
+  },
+  {
+    "id": "L26",
+    "t": "I",
+    "text": "Mikroskopla hücre veya doku örnekleri incelemek"
+  },
+  {
+    "id": "L27",
+    "t": "A",
+    "text": "Müzik bestelemek, düzenlemek veya bir enstrüman çalmak"
+  },
+  {
+    "id": "L28",
+    "t": "S",
+    "text": "Bir topluluğu (kulüp ya da online) yönetip kaynaştırmak"
+  },
+  {
+    "id": "L29",
+    "t": "E",
+    "text": "Kendi işini/girişimini kurma fikri üzerinde çalışmak"
+  },
+  {
+    "id": "L30",
+    "t": "C",
+    "text": "Bir işin adım adım nasıl yapılacağını anlatan rehber yazmak"
+  },
+  {
+    "id": "L31",
+    "t": "R",
+    "text": "Elektronik bir devre kurup çalıştırmak"
+  },
+  {
+    "id": "L32",
+    "t": "I",
+    "text": "Yeni bir hastalık tedavisinin nasıl geliştirildiğini derinlemesine araştırmak"
+  },
+  {
+    "id": "L33",
+    "t": "A",
+    "text": "Şiir, öykü veya senaryo yazmak"
+  },
+  {
+    "id": "L34",
+    "t": "S",
+    "text": "Sağlık ya da afet gönüllüsü olarak sahada çalışmak"
+  },
+  {
+    "id": "L35",
+    "t": "E",
+    "text": "Sosyal medyada bir etkinliği tanıtıp kalabalık toplamak"
+  },
+  {
+    "id": "L36",
+    "t": "C",
+    "text": "Uzun vadeli bir hedefi küçük görevlere bölüp takvimlendirmek"
+  }
+]

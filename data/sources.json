@@ -1,0 +1,105 @@
+{
+  "_comment": "Kaynak künyeleri. clusters.json ve skills2030.json içindeki her rozet/iddia buradaki bir id'ye bağlıdır. Arayüzde rozetin yanında kaynak kısaltması ve yılı gösterilmelidir.",
+  "_updated": "2026-09-20",
+  "sources": [
+    {
+      "id": "wef_foj_2025",
+      "short": "WEF 2025",
+      "title": "The Future of Jobs Report 2025",
+      "publisher": "World Economic Forum",
+      "date": "2025-01",
+      "url": "https://www.weforum.org/publications/the-future-of-jobs-report-2025/",
+      "note": "1.000+ işveren, 14 milyon çalışan. 2030'a kadar 170M yeni rol, 92M yer değiştiren rol, net +78M. İşlerin %22'si dönüşüyor. Çekirdek becerilerin %39'u değişiyor. Bir sonraki baskı 2027 bekleniyor — bu rapor hâlâ en güncel WEF baskısıdır."
+    },
+    {
+      "id": "wef_foj_2025_skills",
+      "short": "WEF 2025 · Beceriler",
+      "title": "Future of Jobs Report 2025 — Skills Outlook",
+      "publisher": "World Economic Forum",
+      "date": "2025-01",
+      "url": "https://www.weforum.org/publications/the-future-of-jobs-report-2025/in-full/3-skills-outlook/",
+      "note": "2030'un yükselen 10 becerisi ve 2025'in çekirdek 10 becerisi bu bölümden alınmıştır."
+    },
+    {
+      "id": "bls_ep_2025_35",
+      "short": "ABD BLS 2025-35",
+      "title": "Employment Projections 2025–2035",
+      "publisher": "U.S. Bureau of Labor Statistics",
+      "date": "2026-08-27",
+      "url": "https://www.bls.gov/news.release/ecopro.nr0.htm",
+      "note": "ABD 10 yılda yalnızca 5,9M iş ekliyor (%3,5 — önceki on yılda %10,9). Yeni işlerin %37'si sağlık ve sosyal hizmette. Büro/idari destek %4,0 daralıyor (-752.100 kişi), gerekçe olarak YZ otomasyonu gösteriliyor."
+    },
+    {
+      "id": "bls_ooh_fastest",
+      "short": "ABD BLS · OOH",
+      "title": "Fastest Growing Occupations (2025–35)",
+      "publisher": "U.S. Bureau of Labor Statistics — Occupational Outlook Handbook",
+      "date": "2026-08",
+      "url": "https://www.bls.gov/ooh/fastest-growing.htm",
+      "note": "Hemşire pratisyen %41, güneş PV kurulumcusu %36,5, veri bilimci %34,6, rüzgâr türbini teknisyeni %30, bilgi güvenliği analisti %21, epidemiyolog %19, endüstriyel makine bakımcısı %18."
+    },
+    {
+      "id": "linkedin_jotr_2026",
+      "short": "LinkedIn 2026",
+      "title": "Jobs on the Rise 2026 (ABD)",
+      "publisher": "LinkedIn",
+      "date": "2026-01",
+      "url": "https://www.linkedin.com/pulse/linkedin-jobs-rise-2026-25-fastest-growing-roles-us-linkedin-news-dlb1c",
+      "note": "En hızlı büyüyen ilk beş rolün dördü YZ ile ilgili. #1 YZ Mühendisi, #2 YZ Danışmanı/Stratejisti, #4 Veri Etiketleyici, #5 YZ/ML Araştırmacısı; listede ayrıca Kurucu, Veri Merkezi Teknisyeni, Psikiyatri Hemşiresi, Finansal Danışman, İnşaat Proje Lideri var."
+    },
+    {
+      "id": "stanford_canaries_2026",
+      "short": "Stanford 2026",
+      "title": "Canaries in the Coal Mine? — Ağustos 2026 güncellemesi",
+      "publisher": "Stanford Digital Economy Lab",
+      "date": "2026-08",
+      "url": "https://digitaleconomy.stanford.edu/news/canariesaug26/",
+      "note": "22-25 yaş çalışanların YZ'ye yüksek maruz mesleklerdeki istihdamı, düşük maruz akranlarına kıyasla ~%19 geride (Temmuz 2025'te %15'ti). Veri aralığı Kasım 2022 - Haziran 2026. Kodlanmış/ders kitabından öğrenilebilir bilgiye dayalı işler etkileniyor; deneyimle kazanılan örtük bilgiye dayalı işler etkilenmiyor. Yazarlar nedenselliğin kanıtlanmadığını vurguluyor."
+    },
+    {
+      "id": "isc2_2025",
+      "short": "ISC2 2025",
+      "title": "2025 Cybersecurity Workforce Study",
+      "publisher": "ISC2",
+      "date": "2025-12",
+      "url": "https://www.isc2.org/Insights/2025/12/2025-ISC2-Cybersecurity-Workforce-Study",
+      "note": "16.029 profesyonel. Artık sorun kişi sayısı değil beceri: %59 kritik/ciddi beceri açığı bildiriyor (2024'te %44); %95'i en az bir beceri açığı yaşıyor. En büyük açık YZ becerileri (%41), bulut güvenliği (%36). %73: YZ daha uzmanlaşmış siber beceriler doğuracak."
+    },
+    {
+      "id": "oecd_ai_skills_2026",
+      "short": "OECD 2026",
+      "title": "AI and Skills — Key Messages",
+      "publisher": "OECD",
+      "date": "2026-06",
+      "url": "https://www.oecd.org/en/publications/ai-and-skills_f843b352-en/full-report.html",
+      "note": "YZ çağında beceri talebinin nasıl kaydığına dair OECD sentezi; teknik becerilerin insan becerileriyle harmanlanması ve giriş seviyesi işlerin dönüşümü temaları."
+    },
+    {
+      "id": "wef_transformation_2025_12",
+      "short": "WEF Aralık 2025",
+      "title": "Beyond the inflection point: the new forces shaping the transformation of work",
+      "publisher": "World Economic Forum",
+      "date": "2025-12",
+      "url": "https://www.weforum.org/stories/2025/12/work-transformation-skills-agility-growth/",
+      "note": "Küresel olarak 1,4M doldurulamayan teknoloji pozisyonu ve 1,6M doldurulamayan YZ pozisyonu; 2030'a kadar 11M sağlık çalışanı açığı (DSÖ projeksiyonu); rollerin giderek teknik+insani becerinin 50-50 karışımını istemesi."
+    },
+    {
+      "id": "wef_mckinsey_space_2024",
+      "short": "WEF/McKinsey 2024",
+      "title": "Space: The $1.8 Trillion Opportunity for Global Economic Growth",
+      "publisher": "World Economic Forum & McKinsey",
+      "date": "2024-04",
+      "url": "https://www.weforum.org/publications/space-the-1-8-trillion-opportunity-for-global-economic-growth/",
+      "note": "Uzay ekonomisi 2035'e kadar 1,8 trilyon dolara üçe katlanıyor; büyümenin çoğu uzay dışı sektörlerin uzay verisi kullanımından geliyor."
+    },
+    {
+      "id": "mckinsey_quantum_2023",
+      "short": "McKinsey 2023",
+      "title": "Quantum Technology Monitor — yatırımlar ve yetenek açığı",
+      "publisher": "McKinsey & Company",
+      "date": "2023-04",
+      "url": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/quantum-technology-sees-record-investments-progress-on-talent-gap",
+      "note": "Kuantum yüksek lisans mezunu arzı hızla artıyor ama alan hâlâ küçük ve uzmanlık yoğun; otomotiv, kimya, finans ve yaşam bilimlerinde 2035'e kadar 1,3 trilyon dolara varan değer öngörüsü. DİKKAT: Bu veri 2023'tür; 'her 3 açık pozisyona 1 nitelikli aday' ifadesi 2022 verisine dayanır ve artık güncel değildir."
+    }
+  ]
+}

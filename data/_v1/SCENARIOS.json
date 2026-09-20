@@ -1,0 +1,152 @@
+[
+  {
+    "id": "SC1",
+    "q": "Okul takımınla girdiğin bir yarışma projesi teslimden iki gün önce dağıldı. İlk içgüdün hangisi olurdu?",
+    "opts": [
+      {
+        "t": "R",
+        "text": "Prototipi masaya yatırır, elimle çalışır hale getiririm"
+      },
+      {
+        "t": "I",
+        "text": "Nerede hata yaptığımızı bulmak için veriyi ve tasarımı yeniden analiz ederim"
+      },
+      {
+        "t": "A",
+        "text": "Projenin sunumunu ve hikâyesini baştan yaratıcı şekilde kurgularım"
+      },
+      {
+        "t": "S",
+        "text": "Panikleyen ekibi toparlar, moral ve görevleri yeniden düzenlerim"
+      },
+      {
+        "t": "E",
+        "text": "Öğretmenle/jüriyle konuşup ek süre için ikna etmeyi denerim"
+      },
+      {
+        "t": "C",
+        "text": "Kalan tüm işleri listeler, saat saat kim ne yapacak planlarım"
+      }
+    ]
+  },
+  {
+    "id": "SC2",
+    "q": "Büyük bir bilim-teknoloji fuarında tek başına bir öğleden sonran var. En çok nereye gidersin?",
+    "opts": [
+      {
+        "t": "R",
+        "text": "Robotların ve makinelerin kurcalanabildiği atölye standına"
+      },
+      {
+        "t": "I",
+        "text": "Araştırmacıların çalışmalarını anlattığı laboratuvar sunumlarına"
+      },
+      {
+        "t": "A",
+        "text": "Dijital sanat ve tasarım enstalasyonlarına"
+      },
+      {
+        "t": "S",
+        "text": "Ziyaretçilere deneyleri anlatan gönüllü rehber ekibine katılmaya"
+      },
+      {
+        "t": "E",
+        "text": "Genç girişimcilerin ürünlerini tanıttığı startup bölümüne"
+      },
+      {
+        "t": "C",
+        "text": "Fuarın nasıl planlanıp yönetildiğini gösteren organizasyon merkezine"
+      }
+    ]
+  },
+  {
+    "id": "SC3",
+    "q": "Okulda yeni kurulan bir teknoloji kulübünde hangi rol sana en çekici gelir?",
+    "opts": [
+      {
+        "t": "R",
+        "text": "Donanım ve prototip sorumlusu — yapan, kuran, çalıştıran kişi"
+      },
+      {
+        "t": "I",
+        "text": "Ar-Ge sorumlusu — teknik problemleri araştırıp çözüm geliştiren kişi"
+      },
+      {
+        "t": "A",
+        "text": "Tasarım sorumlusu — logo, arayüz, video ve görsel kimlik"
+      },
+      {
+        "t": "S",
+        "text": "Eğitim sorumlusu — yeni üyelere öğreten ve takımı kaynaştıran kişi"
+      },
+      {
+        "t": "E",
+        "text": "Kulüp başkanı — vizyonu belirleyen ve kulübü dışarıda temsil eden kişi"
+      },
+      {
+        "t": "C",
+        "text": "Operasyon sorumlusu — bütçe, takvim ve organizasyonu yöneten kişi"
+      }
+    ]
+  },
+  {
+    "id": "SC4",
+    "q": "İnternette kendini kaybettiğin içerikler daha çok hangisi?",
+    "opts": [
+      {
+        "t": "R",
+        "text": "Nasıl yapılır, mühendislik, tamir ve maker videoları"
+      },
+      {
+        "t": "I",
+        "text": "Bilim, uzay, yapay zekâ gibi konuları derinlemesine anlatan içerikler"
+      },
+      {
+        "t": "A",
+        "text": "Sanat, tasarım, müzik ve film analizi içerikleri"
+      },
+      {
+        "t": "S",
+        "text": "İnsan psikolojisi, ilişkiler ve toplum üzerine içerikler"
+      },
+      {
+        "t": "E",
+        "text": "Girişimcilik, ekonomi ve başarı hikâyeleri"
+      },
+      {
+        "t": "C",
+        "text": "Verimlilik, planlama ve hayat düzenleme (productivity) içerikleri"
+      }
+    ]
+  },
+  {
+    "id": "SC5",
+    "q": "Hayalindeki yaz stajını seçebilseydin hangisi olurdu?",
+    "opts": [
+      {
+        "t": "R",
+        "text": "Bir robotik şirketinin prototip atölyesinde"
+      },
+      {
+        "t": "I",
+        "text": "Bir üniversitenin araştırma laboratuvarında"
+      },
+      {
+        "t": "A",
+        "text": "Bir oyun ya da tasarım stüdyosunda"
+      },
+      {
+        "t": "S",
+        "text": "Bir hastanenin gönüllü programında ya da eğitim projesinde"
+      },
+      {
+        "t": "E",
+        "text": "Bir startup'ta kurucunun yanında"
+      },
+      {
+        "t": "C",
+        "text": "Büyük bir şirketin veri ve operasyon ekibinde"
+      }
+    ]
+  }
+]

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "P1",
+    "axis": "pt",
+    "q": "Bir teknoloji fuarındasın. Hangisi sana daha çekici gelir?",
+    "a": {
+      "text": "Mucitlerle ve standdaki insanlarla sohbet etmek",
+      "side": "people"
+    },
+    "b": {
+      "text": "Sergilenen makineyi yakından inceleyip kurcalamak",
+      "side": "things"
+    }
+  },
+  {
+    "id": "P2",
+    "axis": "pt",
+    "q": "Grup projesinde sana daha doğal gelen taraf hangisi?",
+    "a": {
+      "text": "Ekipteki insanları koordine etmek ve iletişimi yürütmek",
+      "side": "people"
+    },
+    "b": {
+      "text": "İşin teknik kısmını üstlenip üretime odaklanmak",
+      "side": "things"
+    }
+  },
+  {
+    "id": "P3",
+    "axis": "pt",
+    "q": "Yorucu bir günün sonunda seni toparlayan hangisi olur?",
+    "a": {
+      "text": "Arkadaşlarımla vakit geçirmek, sohbet etmek",
+      "side": "people"
+    },
+    "b": {
+      "text": "Tek başıma bir şey kurcalamak, üretmek, oynamak",
+      "side": "things"
+    }
+  },
+  {
+    "id": "P4",
+    "axis": "di",
+    "q": "Hangisi sana daha tatmin edici gelir?",
+    "a": {
+      "text": "Dağınık bir şeyi kusursuz düzenlenmiş hale getirmek",
+      "side": "data"
+    },
+    "b": {
+      "text": "Kimsenin denemediği yepyeni bir fikir bulmak",
+      "side": "ideas"
+    }
+  },
+  {
+    "id": "P5",
+    "axis": "di",
+    "q": "Bir problemi çözerken önce ne yaparsın?",
+    "a": {
+      "text": "Eldeki verilere, örneklere ve kanıtlara bakarım",
+      "side": "data"
+    },
+    "b": {
+      "text": "Aklıma gelen olasılıkları ve senaryoları hayal ederim",
+      "side": "ideas"
+    }
+  },
+  {
+    "id": "P6",
+    "axis": "di",
+    "q": "Hangi ödev sana daha çekici gelir?",
+    "a": {
+      "text": "Mevcut bilgiyi derleyip eksiksiz ve düzgün bir rapor yazmak",
+      "side": "data"
+    },
+    "b": {
+      "text": "Açık uçlu bir soruya kendi özgün cevabımı üretmek",
+      "side": "ideas"
+    }
+  }
+]

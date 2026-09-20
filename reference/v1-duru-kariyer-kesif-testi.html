@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duru — Kariyer Keşif Testi</title>
+<style>
+  :root {
+    color-scheme: light;
+    --surface-1: #fcfcfb;
+    --page: #f9f9f7;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --muted: #898781;
+    --grid: #e1e0d9;
+    --baseline: #c3c2b7;
+    --border: rgba(11,11,11,0.10);
+    --accent: #2a78d6;
+    --accent-strong: #1c5cab;
+    --accent-soft: #cde2fb;
+    --seq-250: #86b6ef;
+    --seq-400: #3987e5;
+    --seq-500: #256abf;
+    --seq-650: #104281;
+    --good: #006300;
+    --s1: #2a78d6; /* R */
+    --s2: #008300; /* I */
+    --s3: #e87ba4; /* A */
+    --s4: #eda100; /* S */
+    --s5: #1baf7a; /* E */
+    --s6: #eb6834; /* C */
+    --card-shadow: 0 1px 3px rgba(11,11,11,0.06), 0 4px 16px rgba(11,11,11,0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --surface-1: #1a1a19;
+      --page: #0d0d0d;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --muted: #898781;
+      --grid: #2c2c2a;
+      --baseline: #383835;
+      --border: rgba(255,255,255,0.10);
+      --accent: #3987e5;
+      --accent-strong: #86b6ef;
+      --accent-soft: #12345c;
+      --seq-250: #86b6ef;
+      --seq-400: #3987e5;
+      --seq-500: #256abf;
+      --seq-650: #6da7ec;
+      --good: #0ca30c;
+      --s1: #3987e5;
+      --s2: #008300;
+      --s3: #d55181;
+      --s4: #c98500;
+      --s5: #199e70;
+      --s6: #d95926;
+      --card-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--page);
+    color: var(--text-primary);
+    line-height: 1.55;
+    min-height: 100vh;
+  }
+  .shell { max-width: 780px; margin: 0 auto; padding: 20px 16px 80px; }
+  .topbar {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--page);
+    padding: 12px 0 10px;
+    border-bottom: 1px solid var(--grid);
+    margin-bottom: 22px;
+  }
+  .topbar-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .brand { font-weight: 700; font-size: 15px; letter-spacing: .01em; }
+  .brand span { color: var(--accent); }
+  .step-label { font-size: 12.5px; color: var(--muted); }
+  .progress-track {
+    margin-top: 10px; height: 6px; border-radius: 4px;
+    background: var(--grid); overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; width: 0%;
+    background: var(--accent);
+    border-radius: 4px;
+    transition: width .35s ease;
+  }
+  .section-chip {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase;
+    color: var(--accent-strong);
+    background: var(--accent-soft);
+    padding: 3px 10px; border-radius: 20px; margin-bottom: 10px;
+  }
+  h1 { font-size: 26px; line-height: 1.25; margin-bottom: 10px; }
+  h2 { font-size: 20px; line-height: 1.3; margin-bottom: 6px; }
+  h3 { font-size: 16px; margin-bottom: 4px; }
+  .lede { color: var(--text-secondary); font-size: 15px; margin-bottom: 6px; }
+  .hint { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 18px;
+    margin-bottom: 14px;
+    box-shadow: var(--card-shadow);
+  }
+  .intro-list { margin: 14px 0 18px; padding-left: 0; list-style: none; }
+  .intro-list li {
+    padding: 9px 0 9px 30px; position: relative;
+    color: var(--text-secondary); font-size: 14.5px;
+    border-bottom: 1px dashed var(--grid);
+  }
+  .intro-list li:last-child { border-bottom: none; }
+  .intro-list li::before {
+    content: ""; position: absolute; left: 4px; top: 15px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--accent);
+  }
+  .golden-rules {
+    background: var(--accent-soft);
+    border-radius: 12px; padding: 14px 16px; margin: 16px 0 20px;
+    font-size: 14.5px; color: var(--text-primary);
+  }
+  .golden-rules strong { display: block; margin-bottom: 6px; }
+  .golden-rules ul { padding-left: 18px; }
+  .golden-rules li { margin: 4px 0; }
+  .btn {
+    display: inline-block;
+    font: inherit; font-weight: 600; font-size: 15.5px;
+    padding: 12px 28px; border-radius: 12px;
+    border: none; cursor: pointer;
+    background: var(--accent); color: #fff;
+    transition: transform .08s ease, opacity .15s;
+  }
+  .btn:hover { opacity: .92; }
+  .btn:active { transform: scale(.98); }
+  .btn:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+  .btn-ghost {
+    background: transparent; color: var(--text-secondary);
+    border: 1px solid var(--baseline);
+  }
+  .nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; gap: 12px; }
+  .unanswered-note { font-size: 13px; color: var(--muted); margin-top: 10px; text-align: right; min-height: 18px; }
+
+  /* Likert */
+  .likert-item { padding: 16px 2px 14px; border-bottom: 1px solid var(--grid); }
+  .likert-item:last-child { border-bottom: none; }
+  .likert-q { font-size: 15.5px; font-weight: 550; margin-bottom: 12px; }
+  .likert-scale { display: flex; gap: 6px; }
+  .likert-opt {
+    flex: 1; text-align: center; cursor: pointer;
+    border: 1.5px solid var(--baseline); border-radius: 10px;
+    padding: 9px 2px 7px; font-size: 11px; color: var(--muted);
+    user-select: none; transition: all .12s ease; line-height: 1.25;
+    background: transparent;
+  }
+  .likert-opt .dot {
+    display: block; width: 14px; height: 14px; border-radius: 50%;
+    border: 2px solid var(--baseline); margin: 0 auto 5px;
+    transition: all .12s ease;
+  }
+  .likert-opt:hover { border-color: var(--accent); color: var(--text-secondary); }
+  .likert-opt.sel { border-color: var(--accent); background: var(--accent-soft); color: var(--text-primary); font-weight: 600; }
+  .likert-opt.sel .dot { background: var(--accent); border-color: var(--accent); }
+
+  /* Choice cards (scenario / forced / multi) */
+  .choice {
+    display: flex; align-items: flex-start; gap: 12px;
+    border: 1.5px solid var(--baseline); border-radius: 12px;
+    padding: 13px 14px; margin-bottom: 10px; cursor: pointer;
+    transition: all .12s ease; font-size: 14.5px; user-select: none;
+    background: transparent;
+  }
+  .choice:hover { border-color: var(--accent); }
+  .choice.sel { border-color: var(--accent); background: var(--accent-soft); }
+  .choice .radio {
+    flex: 0 0 18px; width: 18px; height: 18px; margin-top: 2px;
+    border: 2px solid var(--baseline); border-radius: 50%;
+    transition: all .12s ease;
+  }
+  .choice.multi .radio { border-radius: 5px; }
+  .choice.sel .radio { border-color: var(--accent); background: var(--accent); box-shadow: inset 0 0 0 3px var(--surface-1); }
+  .choice.multi.sel .radio { box-shadow: none; background: var(--accent); }
+  .choice.disabled { opacity: .45; cursor: not-allowed; }
+
+  /* Forced choice A/B */
+  .ab-q { font-size: 15px; font-weight: 550; margin: 14px 0 10px; }
+  .ab-row { display: flex; gap: 10px; }
+  .ab-opt {
+    flex: 1; border: 1.5px solid var(--baseline); border-radius: 12px;
+    padding: 12px 13px; font-size: 13.5px; cursor: pointer;
+    transition: all .12s ease; user-select: none; text-align: center;
+    color: var(--text-secondary);
+  }
+  .ab-opt:hover { border-color: var(--accent); }
+  .ab-opt.sel { border-color: var(--accent); background: var(--accent-soft); color: var(--text-primary); font-weight: 600; }
+
+  /* Rank */
+  .rank-card {
+    display: flex; align-items: center; gap: 14px;
+    border: 1.5px solid var(--baseline); border-radius: 12px;
+    padding: 13px 15px; margin-bottom: 10px; cursor: pointer;
+    transition: all .12s ease; user-select: none;
+  }
+  .rank-card:hover { border-color: var(--accent); }
+  .rank-card.ranked { border-color: var(--accent); background: var(--accent-soft); }
+  .rank-num {
+    flex: 0 0 30px; width: 30px; height: 30px; border-radius: 50%;
+    border: 2px dashed var(--baseline);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; color: var(--muted);
+  }
+  .rank-card.ranked .rank-num { border: none; background: var(--accent); color: #fff; }
+  .rank-title { font-weight: 650; font-size: 14.5px; }
+  .rank-desc { font-size: 13px; color: var(--text-secondary); }
+
+  /* Confidence rows */
+  .conf-row { padding: 12px 2px; border-bottom: 1px solid var(--grid); }
+  .conf-row:last-child { border-bottom: none; }
+  .conf-label { font-size: 14.5px; font-weight: 550; margin-bottom: 8px; }
+  .conf-scale { display: flex; gap: 6px; }
+  .conf-opt {
+    flex: 1; text-align: center; cursor: pointer;
+    border: 1.5px solid var(--baseline); border-radius: 8px;
+    padding: 7px 0; font-size: 12.5px; color: var(--muted);
+    user-select: none; transition: all .12s;
+  }
+  .conf-opt:hover { border-color: var(--accent); }
+  .conf-opt.sel { border-color: var(--accent); background: var(--accent); color: #fff; font-weight: 700; }
+
+  textarea {
+    width: 100%; min-height: 84px; resize: vertical;
+    font: inherit; font-size: 14.5px;
+    color: var(--text-primary); background: var(--surface-1);
+    border: 1.5px solid var(--baseline); border-radius: 12px;
+    padding: 12px 14px; margin-bottom: 4px;
+  }
+  textarea:focus { outline: none; border-color: var(--accent); }
+  .open-q { font-size: 15px; font-weight: 600; margin: 18px 0 8px; }
+  .open-q:first-child { margin-top: 4px; }
+
+  /* ===== Results ===== */
+  .res-header { text-align: center; margin-bottom: 24px; }
+  .res-header h1 { margin-bottom: 4px; }
+  .res-date { color: var(--muted); font-size: 13px; }
+  .code-badge {
+    display: inline-flex; gap: 8px; margin: 14px 0 4px;
+  }
+  .code-letter {
+    width: 52px; height: 52px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; font-weight: 800; color: #fff;
+  }
+  .code-name { font-size: 15px; font-weight: 650; color: var(--text-secondary); }
+  .bar-row { display: grid; grid-template-columns: 132px 1fr 44px; gap: 10px; align-items: center; padding: 7px 0; }
+  .bar-label { font-size: 13.5px; font-weight: 600; text-align: right; color: var(--text-secondary); }
+  .bar-track { height: 18px; background: var(--grid); border-radius: 0 4px 4px 0; position: relative; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 0 4px 4px 0; transition: width .6s ease; }
+  .bar-val { font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .axis-wrap { margin: 14px 0; }
+  .axis-labels { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--text-secondary); margin-bottom: 5px; }
+  .axis-track { height: 10px; border-radius: 6px; background: var(--grid); position: relative; }
+  .axis-knob {
+    position: absolute; top: 50%; transform: translate(-50%, -50%);
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--surface-1);
+    box-shadow: 0 1px 4px rgba(0,0,0,.25);
+  }
+  .cluster-card { border: 1px solid var(--border); border-radius: 14px; padding: 16px 16px 12px; margin-bottom: 12px; background: var(--surface-1); box-shadow: var(--card-shadow); }
+  .cluster-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .cluster-rank {
+    flex: 0 0 30px; width: 30px; height: 30px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+  }
+  .cluster-title { font-size: 16.5px; font-weight: 700; flex: 1; }
+  .cluster-pct { font-size: 17px; font-weight: 800; color: var(--accent-strong); font-variant-numeric: tabular-nums; }
+  .cluster-bar { height: 8px; border-radius: 4px; background: var(--grid); overflow: hidden; margin-bottom: 10px; }
+  .cluster-bar div { height: 100%; border-radius: 4px; }
+  .cluster-note { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; }
+  .job-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+  .job-item { display: flex; align-items: baseline; gap: 8px; font-size: 14px; flex-wrap: wrap; }
+  .job-name { font-weight: 600; }
+  .job-en { color: var(--muted); font-size: 12.5px; }
+  .badge {
+    font-size: 11px; font-weight: 700; padding: 1.5px 8px; border-radius: 10px;
+    background: var(--accent-soft); color: var(--accent-strong); white-space: nowrap;
+  }
+  .skill-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-chip {
+    font-size: 11.5px; font-weight: 600; color: var(--text-secondary);
+    border: 1px solid var(--baseline); border-radius: 20px; padding: 2px 10px;
+  }
+  .mini-clusters { display: flex; flex-direction: column; gap: 6px; }
+  .mini-row { display: grid; grid-template-columns: 1fr 90px 40px; gap: 10px; align-items: center; font-size: 13.5px; }
+  .mini-track { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+  .mini-track div { height: 100%; background: var(--seq-250); border-radius: 4px; }
+  .flag {
+    border-left: 4px solid var(--s4); background: var(--surface-1);
+    border-radius: 0 12px 12px 0; padding: 12px 14px; margin: 10px 0;
+    font-size: 14px; color: var(--text-secondary);
+  }
+  .flag strong { color: var(--text-primary); }
+  .copy-box {
+    background: var(--accent-soft); border-radius: 14px; padding: 18px; text-align: center; margin-top: 8px;
+  }
+  .copy-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; }
+  .footer-note { text-align: center; font-size: 12.5px; color: var(--muted); margin-top: 26px; line-height: 1.6; }
+  @media (max-width: 560px) {
+    .likert-opt { font-size: 9.5px; padding: 7px 1px 6px; }
+    .bar-row { grid-template-columns: 104px 1fr 40px; }
+    .bar-label { font-size: 12px; }
+    h1 { font-size: 22px; }
+    .ab-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="topbar" id="topbar" style="display:none">
+    <div class="topbar-row">
+      <div class="brand">Duru <span>· Kariyer Keşif Testi</span></div>
+      <div class="step-label" id="stepLabel"></div>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+  <div id="app"></div>
+</div>
+<script>
+/* ============ VERİ ============ */
+const RIASEC_META = {
+  R: { name: "Yapıcı",      en: "Realistic",     color: "var(--s1)", hex: "#2a78d6", desc: "Elle ve araçlarla somut şeyler üretmeyi, kurmayı, çalıştırmayı sever." },
+  I: { name: "Araştırmacı", en: "Investigative", color: "var(--s2)", hex: "#008300", desc: "Anlamayı, analiz etmeyi, problem çözmeyi ve keşfetmeyi sever." },
+  A: { name: "Yaratıcı",    en: "Artistic",      color: "var(--s3)", hex: "#e87ba4", desc: "Özgün fikirler üretmeyi, tasarlamayı ve kendini ifade etmeyi sever." },
+  S: { name: "Sosyal",      en: "Social",        color: "var(--s4)", hex: "#eda100", desc: "İnsanlara yardım etmeyi, öğretmeyi ve birlikte çalışmayı sever." },
+  E: { name: "Girişimci",   en: "Enterprising",  color: "var(--s5)", hex: "#1baf7a", desc: "Liderlik etmeyi, ikna etmeyi ve hedefe yönelik risk almayı sever." },
+  C: { name: "Düzenleyici", en: "Conventional",  color: "var(--s6)", hex: "#eb6834", desc: "Düzen kurmayı, veriyle çalışmayı ve sistemli ilerlemeyi sever." }
+};
+
+const LIKERT_ITEMS = [
+  { id:"L1",  t:"R", text:"Bir drone'u parçalarından birleştirip uçurmak" },
+  { id:"L2",  t:"I", text:"Bir veri setini inceleyip içindeki gizli örüntüyü bulmak" },
+  { id:"L3",  t:"A", text:"Bir uygulamanın görünümünü ve arayüzünü tasarlamak" },
+  { id:"L4",  t:"S", text:"Küçük bir öğrenciye anlamadığı konuyu anlayana kadar anlatmak" },
+  { id:"L5",  t:"E", text:"Bir ürün fikrini jüri önünde sunmak" },
+  { id:"L6",  t:"C", text:"Bir etkinliğin ayrıntılı planını ve kontrol listesini hazırlamak" },
+  { id:"L7",  t:"R", text:"Kendi oyun bilgisayarını parçalarını seçerek toplamak" },
+  { id:"L8",  t:"I", text:"Bir yapay zekâ modelinin neden yanlış cevap verdiğini bulmaya çalışmak" },
+  { id:"L9",  t:"A", text:"Kendi hikâyenle bir video çekip kurgulamak" },
+  { id:"L10", t:"S", text:"Arkadaşlarının kişisel sorunlarını dinleyip destek olmak" },
+  { id:"L11", t:"E", text:"Okul etkinliği için bir firmayla sponsorluk görüşmesi yapmak" },
+  { id:"L12", t:"C", text:"Bir kulübün bütçesini ve harcamalarını tabloda takip etmek" },
+  { id:"L13", t:"R", text:"3D yazıcıyla çalışan bir parça tasarlayıp basmak" },
+  { id:"L14", t:"I", text:"Laboratuvarda deney yapıp sonuçlarını analiz etmek" },
+  { id:"L15", t:"A", text:"Bir oyunun dünyasını ve karakterlerini hayal edip tasarlamak" },
+  { id:"L16", t:"S", text:"Bir gönüllülük projesinde insanlara doğrudan yardım etmek" },
+  { id:"L17", t:"E", text:"Bir proje ekibini yönetip görev dağılımı yapmak" },
+  { id:"L18", t:"C", text:"Dağınık bir dijital arşivi herkesin kolayca bulacağı şekilde düzenlemek" },
+  { id:"L19", t:"R", text:"Bozulan bir cihazı söküp arızayı bulmak ve onarmak" },
+  { id:"L20", t:"I", text:"Zor bir matematik problemini farklı yollarla çözmeyi denemek" },
+  { id:"L21", t:"A", text:"Resim, illüstrasyon veya dijital çizim yapmak" },
+  { id:"L22", t:"S", text:"Yeni gelen birine ortamı tanıtıp uyum sağlamasına yardımcı olmak" },
+  { id:"L23", t:"E", text:"Bir tartışmada insanları kendi fikrine ikna etmek" },
+  { id:"L24", t:"C", text:"Karmaşık verileri düzenli ve okunaklı tablolara dönüştürmek" },
+  { id:"L25", t:"R", text:"Bir robotun mekanik parçalarını kurup çalıştırmak" },
+  { id:"L26", t:"I", text:"Mikroskopla hücre veya doku örnekleri incelemek" },
+  { id:"L27", t:"A", text:"Müzik bestelemek, düzenlemek veya bir enstrüman çalmak" },
+  { id:"L28", t:"S", text:"Bir topluluğu (kulüp ya da online) yönetip kaynaştırmak" },
+  { id:"L29", t:"E", text:"Kendi işini/girişimini kurma fikri üzerinde çalışmak" },
+  { id:"L30", t:"C", text:"Bir işin adım adım nasıl yapılacağını anlatan rehber yazmak" },
+  { id:"L31", t:"R", text:"Elektronik bir devre kurup çalıştırmak" },
+  { id:"L32", t:"I", text:"Yeni bir hastalık tedavisinin nasıl geliştirildiğini derinlemesine araştırmak" },
+  { id:"L33", t:"A", text:"Şiir, öykü veya senaryo yazmak" },
+  { id:"L34", t:"S", text:"Sağlık ya da afet gönüllüsü olarak sahada çalışmak" },
+  { id:"L35", t:"E", text:"Sosyal medyada bir etkinliği tanıtıp kalabalık toplamak" },
+  { id:"L36", t:"C", text:"Uzun vadeli bir hedefi küçük görevlere bölüp takvimlendirmek" }
+];
+
+const SCENARIOS = [
+  { id:"SC1", q:"Okul takımınla girdiğin bir yarışma projesi teslimden iki gün önce dağıldı. İlk içgüdün hangisi olurdu?",
+    opts:[
+      { t:"R", text:"Prototipi masaya yatırır, elimle çalışır hale getiririm" },
+      { t:"I", text:"Nerede hata yaptığımızı bulmak için veriyi ve tasarımı yeniden analiz ederim" },
+      { t:"A", text:"Projenin sunumunu ve hikâyesini baştan yaratıcı şekilde kurgularım" },
+      { t:"S", text:"Panikleyen ekibi toparlar, moral ve görevleri yeniden düzenlerim" },
+      { t:"E", text:"Öğretmenle/jüriyle konuşup ek süre için ikna etmeyi denerim" },
+      { t:"C", text:"Kalan tüm işleri listeler, saat saat kim ne yapacak planlarım" }
+    ]},
+  { id:"SC2", q:"Büyük bir bilim-teknoloji fuarında tek başına bir öğleden sonran var. En çok nereye gidersin?",
+    opts:[
+      { t:"R", text:"Robotların ve makinelerin kurcalanabildiği atölye standına" },
+      { t:"I", text:"Araştırmacıların çalışmalarını anlattığı laboratuvar sunumlarına" },
+      { t:"A", text:"Dijital sanat ve tasarım enstalasyonlarına" },
+      { t:"S", text:"Ziyaretçilere deneyleri anlatan gönüllü rehber ekibine katılmaya" },
+      { t:"E", text:"Genç girişimcilerin ürünlerini tanıttığı startup bölümüne" },
+      { t:"C", text:"Fuarın nasıl planlanıp yönetildiğini gösteren organizasyon merkezine" }
+    ]},
+  { id:"SC3", q:"Okulda yeni kurulan bir teknoloji kulübünde hangi rol sana en çekici gelir?",
+    opts:[
+      { t:"R", text:"Donanım ve prototip sorumlusu — yapan, kuran, çalıştıran kişi" },
+      { t:"I", text:"Ar-Ge sorumlusu — teknik problemleri araştırıp çözüm geliştiren kişi" },
+      { t:"A", text:"Tasarım sorumlusu — logo, arayüz, video ve görsel kimlik" },
+      { t:"S", text:"Eğitim sorumlusu — yeni üyelere öğreten ve takımı kaynaştıran kişi" },
+      { t:"E", text:"Kulüp başkanı — vizyonu belirleyen ve kulübü dışarıda temsil eden kişi" },
+      { t:"C", text:"Operasyon sorumlusu — bütçe, takvim ve organizasyonu yöneten kişi" }
+    ]},
+  { id:"SC4", q:"İnternette kendini kaybettiğin içerikler daha çok hangisi?",
+    opts:[
+      { t:"R", text:"Nasıl yapılır, mühendislik, tamir ve maker videoları" },
+      { t:"I", text:"Bilim, uzay, yapay zekâ gibi konuları derinlemesine anlatan içerikler" },
+      { t:"A", text:"Sanat, tasarım, müzik ve film analizi içerikleri" },
+      { t:"S", text:"İnsan psikolojisi, ilişkiler ve toplum üzerine içerikler" },
+      { t:"E", text:"Girişimcilik, ekonomi ve başarı hikâyeleri" },
+      { t:"C", text:"Verimlilik, planlama ve hayat düzenleme (productivity) içerikleri" }
+    ]},
+  { id:"SC5", q:"Hayalindeki yaz stajını seçebilseydin hangisi olurdu?",
+    opts:[
+      { t:"R", text:"Bir robotik şirketinin prototip atölyesinde" },
+      { t:"I", text:"Bir üniversitenin araştırma laboratuvarında" },
+      { t:"A", text:"Bir oyun ya da tasarım stüdyosunda" },
+      { t:"S", text:"Bir hastanenin gönüllü programında ya da eğitim projesinde" },
+      { t:"E", text:"Bir startup'ta kurucunun yanında" },
+      { t:"C", text:"Büyük bir şirketin veri ve operasyon ekibinde" }
+    ]}
+];
+
+const PREDIGER = [
+  { id:"P1", axis:"pt", q:"Bir teknoloji fuarındasın. Hangisi sana daha çekici gelir?",
+    a:{ text:"Mucitlerle ve standdaki insanlarla sohbet etmek", side:"people" },
+    b:{ text:"Sergilenen makineyi yakından inceleyip kurcalamak", side:"things" } },
+  { id:"P2", axis:"pt", q:"Grup projesinde sana daha doğal gelen taraf hangisi?",
+    a:{ text:"Ekipteki insanları koordine etmek ve iletişimi yürütmek", side:"people" },
+    b:{ text:"İşin teknik kısmını üstlenip üretime odaklanmak", side:"things" } },
+  { id:"P3", axis:"pt", q:"Yorucu bir günün sonunda seni toparlayan hangisi olur?",
+    a:{ text:"Arkadaşlarımla vakit geçirmek, sohbet etmek", side:"people" },
+    b:{ text:"Tek başıma bir şey kurcalamak, üretmek, oynamak", side:"things" } },
+  { id:"P4", axis:"di", q:"Hangisi sana daha tatmin edici gelir?",
+    a:{ text:"Dağınık bir şeyi kusursuz düzenlenmiş hale getirmek", side:"data" },
+    b:{ text:"Kimsenin denemediği yepyeni bir fikir bulmak", side:"ideas" } },
+  { id:"P5", axis:"di", q:"Bir problemi çözerken önce ne yaparsın?",
+    a:{ text:"Eldeki verilere, örneklere ve kanıtlara bakarım", side:"data" },
+    b:{ text:"Aklıma gelen olasılıkları ve senaryoları hayal ederim", side:"ideas" } },
+  { id:"P6", axis:"di", q:"Hangi ödev sana daha çekici gelir?",
+    a:{ text:"Mevcut bilgiyi derleyip eksiksiz ve düzgün bir rapor yazmak", side:"data" },
+    b:{ text:"Açık uçlu bir soruya kendi özgün cevabımı üretmek", side:"ideas" } }
+];
+
+const ENV_PREFS = [
+  { id:"E1", q:"Çalışma ritmi olarak hangisi sana daha uygun?",
+    a:"Düzenli ve öngörülebilir bir program", b:"Proje bazlı yoğun dönemler, arada esneklik" },
+  { id:"E2", q:"Hangi ortamda daha mutlu olursun?",
+    a:"Ofis, laboratuvar, stüdyo gibi kapalı ortam", b:"Saha, açık hava, hareket halinde" },
+  { id:"E3", q:"Günün büyük kısmında hangisini tercih edersin?",
+    a:"Kalabalık bir ekiple sürekli etkileşim", b:"Derin odakla çoğunlukla kendi başıma çalışmak" },
+  { id:"E4", q:"Hangisi sana daha cazip gelir?",
+    a:"Büyük, köklü bir kurumda güvence ve düzen", b:"Küçük, hızlı bir girişimde dinamizm ve risk" },
+  { id:"E5", q:"Üretme şekli olarak hangisi daha çok senin?",
+    a:"Ekran başında dijital şeyler üretmek", b:"Elle dokunulabilir, fiziksel şeyler üretmek" },
+  { id:"E6", q:"Hangi tempo sana daha uygun?",
+    a:"Yüksek tempolu, rekabetçi, iddialı bir ortam", b:"Sakin, dengeli ve sürdürülebilir bir tempo" }
+];
+
+const VALUES = [
+  { id:"achievement", title:"Başarı & Ustalık", desc:"Zor bir işte gerçekten iyi olmak, yeteneklerimi sonuna kadar kullanmak", en:"Achievement" },
+  { id:"independence", title:"Bağımsızlık", desc:"Kendi kararlarımı vermek, kendi tarzımla ve özgürce çalışmak", en:"Independence" },
+  { id:"recognition", title:"Tanınma & Statü", desc:"Yükselmek, saygı gören bir konumda olmak, başarımın görünür olması", en:"Recognition" },
+  { id:"relationships", title:"İnsanlara Dokunmak", desc:"İşimin başkalarının hayatında somut bir iyilik yaratması", en:"Relationships / Service" },
+  { id:"conditions", title:"Güvence & Kazanç", desc:"İyi kazanç, iş güvencesi ve rahat çalışma koşulları", en:"Working Conditions" },
+  { id:"support", title:"İyi Ekip & Destek", desc:"Beni destekleyen bir yönetim ve sıcak bir ekiple çalışmak", en:"Support" }
+];
+
+const FLOW_QS = [
+  { id:"F1", q:"Hangi aktivitelerde zamanın nasıl geçtiğini fark etmiyorsun?", max:3,
+    opts:[
+      { t:"R", text:"Bir şeyler inşa etmek, kurmak, tamir etmek" },
+      { t:"I", text:"Merak ettiğim bir konuyu saatlerce araştırmak" },
+      { t:"A", text:"Çizmek, tasarlamak, içerik üretmek" },
+      { t:"S", text:"İnsanlarla derin sohbetler etmek" },
+      { t:"E", text:"Bir etkinliği organize edip insanları dahil etmek" },
+      { t:"C", text:"Arşiv düzenlemek, listeler ve planlar yapmak" },
+      { t:"I", text:"Bulmaca, mantık oyunları, zor problemler çözmek" },
+      { t:"A", text:"Müzik, film ve hikâye dünyalarına dalmak" },
+      { t:"S", text:"Birine bir şey öğretmek" },
+      { t:"E", text:"Tartışmak, fikir savunmak, müzakere etmek" },
+      { t:"R", text:"Lego, maket, elektronik parçalarla uğraşmak" },
+      { t:"C", text:"Tablolarla ve düzenli verilerle oynamak" }
+    ]},
+  { id:"F2", q:"Kimse istemeden, kendi kendine öğrendiğin ya da takip ettiğin şeyler hangileri?", max:3,
+    opts:[
+      { t:"R", text:"Yeni bir cihazı ya da aleti kurcalayıp öğrenmek" },
+      { t:"I", text:"Bilimsel konular, belgeseller, derin makaleler" },
+      { t:"I", text:"Kodlama ve programlama" },
+      { t:"A", text:"Tasarım, video kurgu ya da müzik üretim araçları" },
+      { t:"S", text:"Psikoloji, insan davranışları, iletişim" },
+      { t:"E", text:"Yatırım, girişimcilik, para yönetimi" },
+      { t:"C", text:"Verimlilik sistemleri, not ve plan uygulamaları" }
+    ]},
+  { id:"F3", q:"Hangisini yaptıktan sonra yorulmak yerine enerji dolmuş hissedersin?", max:2,
+    opts:[
+      { t:"R", text:"Elimle somut bir şeyi bitirmek" },
+      { t:"I", text:"Kafamı kurcalayan zor bir soruyu çözmek" },
+      { t:"A", text:"Ortaya yaratıcı, özgün bir şey çıkarmak" },
+      { t:"S", text:"Birinin gününü gerçekten iyileştirmek" },
+      { t:"E", text:"İnsanları bir hedefe ikna etmek, sahnede olmak" },
+      { t:"C", text:"Dağınık bir işi tertemiz bir düzene sokmak" }
+    ]}
+];
+
+const CONF_ITEMS = [
+  { id:"c_math",    text:"Üniversite düzeyinde matematik (ör. kalkülüs)" },
+  { id:"c_physics", text:"Fizik ve mekanik konular" },
+  { id:"c_coding",  text:"Kodlama ve algoritmalar" },
+  { id:"c_bio",     text:"Biyoloji ve kimya" },
+  { id:"c_design",  text:"Görsel tasarım ve estetik" },
+  { id:"c_writing", text:"Yazarak anlatım, metin üretme" },
+  { id:"c_speaking",text:"Topluluk önünde sunum ve ikna" },
+  { id:"c_org",     text:"Organizasyon ve planlama" },
+  { id:"c_hands",   text:"El becerisi gerektiren pratik işler" },
+  { id:"c_english", text:"İngilizce (eğitim dili olarak)" }
+];
+
+const PROBLEMS = [
+  { id:"climate",  text:"İklim krizi ve temiz enerji" },
+  { id:"health",   text:"Hastalıkların tedavisi ve sağlıklı uzun yaşam" },
+  { id:"ai",       text:"Yapay zekânın güvenli ve adil gelişimi" },
+  { id:"education",text:"Eğitimde fırsat eşitliği" },
+  { id:"space",    text:"Uzayın keşfi" },
+  { id:"food",     text:"Gıda ve su güvenliği" },
+  { id:"cyber",    text:"Siber güvenlik ve dijital haklar" },
+  { id:"finance",  text:"Yoksulluk ve finansal erişim" }
+];
+
+const TECHS = [
+  { id:"ai",       text:"Yapay zekâ" },
+  { id:"robotics", text:"Robotik ve otonom sistemler" },
+  { id:"biotech",  text:"Biyoteknoloji ve genetik" },
+  { id:"quantum",  text:"Kuantum bilişim" },
+  { id:"space",    text:"Uzay teknolojileri" },
+  { id:"energy",   text:"Yenilenebilir enerji" },
+  { id:"bci",      text:"Beyin-bilgisayar arayüzleri" },
+  { id:"fintech",  text:"FinTech ve dijital finans" },
+  { id:"games",    text:"Oyun ve sanal dünyalar" },
+  { id:"healthtech",text:"Sağlık teknolojileri" },
+  { id:"cybertech",text:"Siber güvenlik" }
+];
+
+const OPEN_QS = [
+  { id:"O1", q:"Para ve not derdi olmasaydı bile yapmaya devam edeceğin 3 şey nedir?" },
+  { id:"O2", q:"İnsanlar (arkadaşların, ailen) en çok hangi konularda senden yardım ister?" },
+  { id:"O3", q:"10 yıl sonra sıradan ama güzel bir iş gününü hayal et. O gün neler yapıyorsun? Kısaca anlat." }
+];
+
+const CLUSTERS = [
+  { id:"ai_data", name:"Yapay Zekâ & Veri Bilimi",
+    riasec:{ I:3, C:1.5, R:0.5 }, tech:["ai"], problems:["ai"], conf:["c_math","c_coding"],
+    note:"WEF'e göre 'yapay zekâ ve büyük veri' 2030'un önemi en hızlı artan becerisi. Bu küme, geleceğin iş piyasasının merkezinde.",
+    skills:["Yapay zekâ ve büyük veri","Analitik düşünme","Teknoloji okuryazarlığı"],
+    jobs:[
+      { name:"Yapay Zekâ / ML Mühendisi", en:"AI & Machine Learning Engineer", badge:"LinkedIn 2025 ve 2026 #1 iş" },
+      { name:"Veri Bilimci", en:"Data Scientist", badge:"ABD'de +%33 büyüme (2024-34)" },
+      { name:"Büyük Veri Uzmanı", en:"Big Data Specialist", badge:"WEF: en hızlı büyüyen meslek" },
+      { name:"YZ Etiği ve Yönetişimi Uzmanı", en:"AI Governance Specialist", badge:"Yeni ve büyüyen alan" }
+    ]},
+  { id:"software_cyber", name:"Yazılım & Siber Güvenlik",
+    riasec:{ I:2.5, C:2, R:1 }, tech:["ai","cybertech"], problems:["cyber"], conf:["c_coding","c_math"],
+    note:"Siber güvenlik YZ-tamamlayıcı ve açık pozisyon dolu bir alan. Rutin giriş-seviye kodlama YZ'ye açık; uzmanlaşmış ve mimari roller güçlü kalıyor.",
+    skills:["Ağlar ve siber güvenlik","Teknoloji okuryazarlığı","Analitik düşünme"],
+    jobs:[
+      { name:"Siber Güvenlik Uzmanı", en:"Cybersecurity / Information Security Analyst", badge:"Küresel ~4,8M açık pozisyon" },
+      { name:"Yazılım Mimarı / Uzman Geliştirici", en:"Software Architect", badge:"WEF: hızlı büyüyen" },
+      { name:"Bulut / DevOps Mühendisi", en:"Cloud & DevOps Engineer", badge:"YZ altyapı patlaması" },
+      { name:"Robotik Yazılım Mühendisi", en:"Robotics Software Engineer", badge:"Fiziksel YZ = dirençli alan" }
+    ]},
+  { id:"engineering", name:"Mühendislik & Robotik",
+    riasec:{ R:3, I:2.5 }, tech:["robotics"], problems:[], conf:["c_physics","c_math","c_hands"],
+    note:"Fiziksel dünya mühendisliği YZ'ye en dirençli alanlardan: makineyi kuran, anlık muhakeme yapan insan kolay otomatikleşmiyor.",
+    skills:["Teknoloji okuryazarlığı","Analitik düşünme","Sistem düşüncesi"],
+    jobs:[
+      { name:"Mekatronik / Robotik Mühendisi", en:"Robotics & Mechatronics Engineer", badge:"Otomasyon çağının kurucusu" },
+      { name:"Çip Tasarım Mühendisi", en:"Semiconductor Design Engineer", badge:"2030'a ~1M ek uzman ihtiyacı" },
+      { name:"Otonom / Elektrikli Araç Uzmanı", en:"Autonomous & EV Specialist", badge:"WEF: en hızlı büyüyenlerden" },
+      { name:"Havacılık ve Uzay Mühendisi", en:"Aerospace Engineer", badge:"Uzay ekonomisi $1,8T'ye gidiyor" }
+    ]},
+  { id:"green", name:"Yeşil Enerji & İklim",
+    riasec:{ I:2.5, R:2 }, tech:["energy"], problems:["climate","food"], conf:["c_physics","c_math"],
+    note:"Yeşil dönüşüm on yıllarca sürecek bir talep yaratıyor; 'çevresel koruma' WEF'in 2030 becerileri top 10'una yeni girdi.",
+    skills:["Çevresel koruma","Analitik düşünme","Sistem düşüncesi"],
+    jobs:[
+      { name:"Yenilenebilir Enerji Mühendisi", en:"Renewable Energy Engineer", badge:"WEF: en hızlı büyüyenlerden" },
+      { name:"Çevre Mühendisi", en:"Environmental Engineer", badge:"WEF: en hızlı büyüyenlerden" },
+      { name:"Enerji Sistemleri / Şebeke Mühendisi", en:"Energy Systems Engineer", badge:"Kronik uzman açığı" },
+      { name:"İklim Bilimci / Risk Modelleyici", en:"Climate Scientist", badge:"Sigorta ve finans da işe alıyor" }
+    ]},
+  { id:"medicine", name:"Tıp & Klinik Sağlık",
+    riasec:{ I:3, S:2.5 }, tech:["healthtech"], problems:["health"], conf:["c_bio"],
+    note:"Sağlık, YZ'ye en dirençli küme: lisans/ruhsat bariyeri var ve YZ hekimin yerini almak yerine onu güçlendiriyor. Yaşlanan dünya talebi artırıyor.",
+    skills:["Empati ve aktif dinleme","Analitik düşünme","Teknoloji okuryazarlığı"],
+    jobs:[
+      { name:"Hekim (YZ-destekli uzmanlıklar)", en:"Physician / MD", badge:"ABD'de yeni işlerin ~1/3'ü sağlıkta" },
+      { name:"Diş Hekimi", en:"Dentist", badge:"Güçlü gelir ve güvence" },
+      { name:"Epidemiyolog / Halk Sağlığı Uzmanı", en:"Epidemiologist", badge:"Pandemi sonrası kalıcı yatırım" },
+      { name:"Sağlık Bilişimi Uzmanı", en:"Health Informatics Specialist", badge:"Klinik + teknik hibrit" }
+    ]},
+  { id:"biotech", name:"Biyoteknoloji & Biyoinformatik",
+    riasec:{ I:3, C:1, R:1 }, tech:["biotech","ai"], problems:["health","food"], conf:["c_bio","c_coding"],
+    note:"AlphaFold çağında biyoloji hesaplamalı bir bilime dönüştü. Bio × veri hibriti kıt, otomasyona dirençli ve iki çıkış pazarlı.",
+    skills:["Yapay zekâ ve büyük veri","Analitik düşünme","Merak ve yaşam boyu öğrenme"],
+    jobs:[
+      { name:"Biyoinformatik Uzmanı", en:"Bioinformatician / Computational Biologist", badge:"Pharma'nın çekirdek işi" },
+      { name:"Biyomedikal Mühendisi", en:"Biomedical Engineer", badge:"Yaşlanan dünya + giyilebilir sağlık" },
+      { name:"Sentetik Biyoloji Araştırmacısı", en:"Synthetic Biology Scientist", badge:"Ulusal öncelik alanı (ABD/AB)" },
+      { name:"Genetik Danışman", en:"Genetic Counselor", badge:"Kişisel tıp büyüyor" }
+    ]},
+  { id:"finance", name:"Finans & Quant",
+    riasec:{ C:2.5, E:2, I:1.5 }, tech:["fintech"], problems:["finance"], conf:["c_math"],
+    note:"FinTech Mühendisi WEF'in en hızlı büyüyen 2. mesleği. Matematik gücü bu kümenin giriş bileti; YZ modelleri denetleyen insana talep artıyor.",
+    skills:["Yapay zekâ ve büyük veri","Analitik düşünme","Dayanıklılık ve çeviklik"],
+    jobs:[
+      { name:"FinTech Mühendisi", en:"FinTech Engineer", badge:"WEF: en hızlı büyüyen #2" },
+      { name:"Aktüer", en:"Actuary", badge:"ABD'de +%22 büyüme, yüksek gelir" },
+      { name:"Quant Analist / Araştırmacı", en:"Quantitative Analyst", badge:"Giriş maaşları piyasanın zirvesi" },
+      { name:"İklim / ESG Risk Analisti", en:"Climate Risk Analyst", badge:"Yeni ve hızla kurumsallaşan alan" }
+    ]},
+  { id:"design_tech", name:"Tasarım & İnsan-Teknoloji Etkileşimi",
+    riasec:{ A:3, I:1.5 }, tech:["games","ai"], problems:[], conf:["c_design"],
+    note:"UX/UI, WEF'in hızlı büyüyenler listesinde; ama rutin görsel üretim YZ'ye açık. Savunulabilir taraf: kullanıcı araştırması ve insan-YZ etkileşimi tasarımı.",
+    skills:["Yaratıcı düşünme","Tasarım ve kullanıcı deneyimi","Empati ve aktif dinleme"],
+    jobs:[
+      { name:"UX / UI Tasarımcısı", en:"UX/UI Designer", badge:"WEF: hızlı büyüyen" },
+      { name:"İnsan-Bilgisayar Etkileşimi Uzmanı", en:"HCI Researcher", badge:"YZ'nin arayüz katmanı" },
+      { name:"Oyun Tasarımcısı / Geliştiricisi", en:"Game Designer / Developer", badge:"Yaratıcılık + kod hibriti" },
+      { name:"İnsan-YZ Etkileşim Tasarımcısı", en:"Human-AI Interaction Designer", badge:"Yükselen niş" }
+    ]},
+  { id:"business", name:"Girişimcilik & Ürün Yönetimi",
+    riasec:{ E:3, S:1, I:1 }, tech:["fintech","ai"], problems:["finance","education"], conf:["c_speaking","c_org"],
+    note:"Liderlik ve sosyal etki WEF 2030 becerilerinde 3. sırada. Teknolojiyi anlayan ve insanları yönlendirebilen hibrit profiller kıt.",
+    skills:["Liderlik ve sosyal etki","Yaratıcı düşünme","Dayanıklılık ve çeviklik"],
+    jobs:[
+      { name:"Ürün Yöneticisi", en:"Product Manager", badge:"Teknoloji + iş hibriti" },
+      { name:"Teknoloji Girişimcisi", en:"Tech Entrepreneur", badge:"Kendi işini kurma yolu" },
+      { name:"YZ Danışmanı / Stratejisti", en:"AI Consultant", badge:"LinkedIn 2026 #2 iş" },
+      { name:"İnovasyon / Strateji Uzmanı", en:"Innovation Strategist", badge:"Her sektörde talep" }
+    ]},
+  { id:"frontier", name:"Uzay, Kuantum & Sınır Teknolojileri",
+    riasec:{ I:3, R:2 }, tech:["quantum","space","bci"], problems:["space","ai"], conf:["c_physics","c_math"],
+    note:"Bugün küçük, 2035'te dev olacak alanlar: kuantumda her 2-3 açık pozisyona 1 nitelikli aday düşüyor; uzay ekonomisi $1,8T'ye koşuyor.",
+    skills:["Analitik düşünme","Merak ve yaşam boyu öğrenme","Yapay zekâ ve büyük veri"],
+    jobs:[
+      { name:"Kuantum Bilişim Mühendisi", en:"Quantum Computing Engineer", badge:"Ciddi yetenek açığı" },
+      { name:"Uzay Endüstrisi Müh. / Uydu Veri Analisti", en:"Space Industry Engineer", badge:"$1,8T pazar öngörüsü (2035)" },
+      { name:"Nöroteknoloji / BCI Mühendisi", en:"Neurotechnology Engineer", badge:"Sıfırdan kurulan sektör" },
+      { name:"YZ Güvenliği Araştırmacısı", en:"AI Safety Researcher", badge:"Talep arzın çok üstünde" }
+    ]}
+];
+
+const LIKERT_LABELS = ["Hiç hoşlanmam","Pek hoşlanmam","Kararsızım","Hoşlanırım","Çok hoşlanırım"];
+const CONF_LABELS = ["1","2","3","4","5"];
+</script>
+<script>
+/*SCORING-START*/
+/* Saf skorlama fonksiyonları — DOM'a dokunmaz, test edilebilir. */
+function computeRiasec(answers, data) {
+  const raw = { R:0, I:0, A:0, S:0, E:0, C:0 };
+  const max = { R:0, I:0, A:0, S:0, E:0, C:0 };
+  // Likert: 0-4 puan
+  data.likert.forEach(item => {
+    const v = answers.likert[item.id];
+    if (typeof v === "number") raw[item.t] += v;
+    max[item.t] += 4;
+  });
+  // Senaryolar: seçilen tip +3
+  data.scenarios.forEach(sc => {
+    const sel = answers.scenarios[sc.id];
+    if (typeof sel === "number") raw[sc.opts[sel].t] += 3;
+    Object.keys(max).forEach(k => max[k] += 3);
+  });
+  // Akış soruları: seçilen her tip +2.
+  // Tip başına ulaşılabilir maksimum: o tipin seçenek sayısı ile soru limitinin küçüğü.
+  data.flow.forEach(fq => {
+    const sels = answers.flow[fq.id] || [];
+    sels.forEach(i => { raw[fq.opts[i].t] += 2; });
+    Object.keys(max).forEach(k => {
+      const optCount = fq.opts.filter(o => o.t === k).length;
+      max[k] += 2 * Math.min(optCount, fq.max);
+    });
+  });
+  const pct = {};
+  Object.keys(raw).forEach(k => { pct[k] = max[k] ? Math.round(100 * raw[k] / max[k]) : 0; });
+  const sorted = Object.keys(pct).sort((a, b) => pct[b] - pct[a] || a.localeCompare(b));
+  const vals = Object.values(pct);
+  const spread = Math.max(...vals) - Math.min(...vals);
+  return { raw, pct, code: sorted.slice(0, 3), sorted, spread, lowDifferentiation: spread < 15 };
+}
+
+function computeAxes(answers, data) {
+  // people-things: -1..+1 (+ = insan, - = nesne); data-ideas: (+ = fikir, - = veri)
+  let pt = 0, ptN = 0, di = 0, diN = 0;
+  data.prediger.forEach(p => {
+    const sel = answers.prediger[p.id]; // "a" | "b"
+    if (!sel) return;
+    const side = p[sel].side;
+    if (p.axis === "pt") { ptN++; pt += (side === "people" ? 1 : -1); }
+    else { diN++; di += (side === "ideas" ? 1 : -1); }
+  });
+  return {
+    peopleThings: ptN ? pt / ptN : 0,   // +1 tam insan, -1 tam nesne
+    dataIdeas: diN ? di / diN : 0       // +1 tam fikir, -1 tam veri
+  };
+}
+
+function computeConfidence(answers, data) {
+  const out = {};
+  data.conf.forEach(c => { out[c.id] = answers.conf[c.id]; }); // 1..5
+  return out;
+}
+
+function computeClusters(answers, data, riasecPct) {
+  const results = data.clusters.map(cl => {
+    // 1) RIASEC uyumu (ağırlıklı ortalama, 0-1)
+    let wSum = 0, wTot = 0;
+    Object.entries(cl.riasec).forEach(([letter, w]) => {
+      wSum += w * (riasecPct[letter] / 100);
+      wTot += w;
+    });
+    const riasecScore = wTot ? wSum / wTot : 0;
+    // 2) Teknoloji ilgisi (0-1)
+    const selTech = answers.techs || [];
+    const techMatches = cl.tech.filter(t => selTech.includes(t)).length;
+    const techScore = cl.tech.length === 0 ? 0.5 : (techMatches > 0 ? 1 : 0);
+    // 3) Dünya sorunu ilgisi (0-1)
+    const selProb = answers.problems || [];
+    const probMatches = cl.problems.filter(p => selProb.includes(p)).length;
+    const probScore = cl.problems.length === 0 ? 0.5 : (probMatches > 0 ? 1 : 0);
+    // 4) Güven (0-1): ilgili alanlardaki öz-yeterlik, 1-5 → 0-1
+    const confVals = cl.conf.map(k => answers.conf[k]).filter(v => typeof v === "number");
+    const confScore = confVals.length ? (confVals.reduce((a, b) => a + b, 0) / confVals.length - 1) / 4 : 0.5;
+    const total = 0.50 * riasecScore + 0.15 * techScore + 0.10 * probScore + 0.25 * confScore;
+    // Koçluk bayrağı: ilgi güçlü ama güven düşük
+    const interestHighConfLow = riasecScore >= 0.55 && confScore < 0.45;
+    return { id: cl.id, name: cl.name, pct: Math.round(100 * total),
+             riasecScore, techScore, probScore, confScore, interestHighConfLow };
+  });
+  results.sort((a, b) => b.pct - a.pct || a.name.localeCompare(b.name, "tr"));
+  return results;
+}
+
+function computeAll(answers, data) {
+  const riasec = computeRiasec(answers, data);
+  const axes = computeAxes(answers, data);
+  const conf = computeConfidence(answers, data);
+  const clusters = computeClusters(answers, data, riasec.pct);
+  return { riasec, axes, conf, clusters };
+}
+/*SCORING-END*/
+</script>
+<script>
+/* ============ UYGULAMA ============ */
+const DATA = { likert: LIKERT_ITEMS, scenarios: SCENARIOS, prediger: PREDIGER, conf: CONF_ITEMS, flow: FLOW_QS, clusters: CLUSTERS };
+
+const state = {
+  page: 0,
+  answers: {
+    likert: {}, scenarios: {}, prediger: {}, env: {},
+    values: [], flow: {}, conf: {}, problems: [], techs: [], open: {}
+  }
+};
+
+function chunk(arr, n) { const out = []; for (let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n)); return out; }
+
+const PAGES = [];
+PAGES.push({ type: "intro" });
+chunk(LIKERT_ITEMS, 6).forEach((items, i) => PAGES.push({
+  type: "likert", items, first: i === 0,
+  section: "Bölüm 1 · İlgi Alanları", stitle: "Bunları yapmaktan hoşlanır mıydın?",
+  sdesc: "Para, prestij, ders notu ya da 'bunu yapabilir miyim' sorusunu tamamen unut. Sadece şunu düşün: bu aktiviteyi yaparken keyif alır mıydım?"
+}));
+SCENARIOS.forEach((sc, i) => PAGES.push({
+  type: "scenario", sc, first: i === 0,
+  section: "Bölüm 2 · Senaryolar", stitle: "Sen olsan ne yapardın?",
+  sdesc: "Doğru cevap yok. 'Yapmam gerekeni' değil, içinden ilk geleni seç."
+}));
+chunk(PREDIGER, 3).forEach((items, i) => PAGES.push({
+  type: "ab", items, key: "prediger", first: i === 0,
+  section: "Bölüm 3 · Çalışma Tarzın", stitle: "İki seçenekten sana daha yakın olanı seç",
+  sdesc: "İkisini de sevebilirsin — yine de birine mecburen karar ver. Zor seçimler en net sinyali verir."
+}));
+chunk(ENV_PREFS, 3).forEach(items => PAGES.push({
+  type: "ab", items, key: "env",
+  section: "Bölüm 3 · Çalışma Tarzın", stitle: "Hangi ortamda daha iyi çalışırsın?",
+  sdesc: "Gelecekteki iş ortamını hayal ederek seç."
+}));
+PAGES.push({
+  type: "rank", first: true,
+  section: "Bölüm 4 · Değerlerin", stitle: "Senin için en önemliden en önemsize sırala",
+  sdesc: "Kartlara önem sırasına göre tıkla: ilk tıkladığın 1. sıraya, sonraki 2. sıraya yerleşir. Yanlış olduysa 'Sıfırla' ile baştan başla. Bu bölüm, hangi işin seni uzun vadede mutlu edeceğini öngörmede en kritik bölüm."
+});
+FLOW_QS.forEach((fq, i) => PAGES.push({
+  type: "flow", fq, first: i === 0,
+  section: "Bölüm 5 · Akış Anları", stitle: "Zamanın nasıl geçtiğini unuttuğun anlar",
+  sdesc: "Bu sorular sahtelenmesi en zor sinyali ölçer: neyi kimse istemeden, kendiliğinden yapıyorsun?"
+}));
+PAGES.push({
+  type: "conf", first: true,
+  section: "Bölüm 6 · Kendine Güven", stitle: "Öğrenmeye zaman ayırsan, yapabileceğine ne kadar güvenirsin?",
+  sdesc: "Bugünkü halin değil, potansiyelin: gerçekten çalışsan bu alanda iyi olabileceğine ne kadar inanıyorsun? (1 = hiç güvenmem, 5 = çok güvenirim). Düşük güven bir kapıyı kapatmaz — sadece nerede desteğe ihtiyaç olduğunu gösterir."
+});
+PAGES.push({
+  type: "multi", key: "problems", items: PROBLEMS, max: 2, first: true,
+  q: "10 yılını adamaya değer bulduğun dünya sorunları hangileri? (en fazla 2)",
+  section: "Bölüm 7 · Gelecek ve Anlam", stitle: "Dünyaya bakışın",
+  sdesc: "Ikigai'nin 'dünyanın ihtiyacı olan' parçası: hangi soruna emek vermek sana anlamlı gelir?"
+});
+PAGES.push({
+  type: "multi", key: "techs", items: TECHS, max: 3,
+  q: "Hangi gelecek teknolojileri seni en çok heyecanlandırıyor? (en fazla 3)",
+  section: "Bölüm 7 · Gelecek ve Anlam", stitle: "Teknoloji radarın",
+  sdesc: "Haber ya da video gördüğünde 'bunu takip etmek istiyorum' dediğin alanlar."
+});
+PAGES.push({
+  type: "open",
+  section: "Bölüm 7 · Gelecek ve Anlam", stitle: "Son üç soru — kendi cümlelerinle",
+  sdesc: "Bu cevaplar puanlanmaz; derin analizde en değerli ipuçları genellikle buradan çıkar. İçinden geldiği gibi, kısa da olsa yaz."
+});
+PAGES.push({ type: "results" });
+
+const $ = sel => document.querySelector(sel);
+const app = $("#app");
+
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c])); }
+
+function sectionHead(p) {
+  if (!p.section) return "";
+  return `<div style="margin-bottom:16px">
+    <span class="section-chip">${esc(p.section)}</span>
+    <h2>${esc(p.stitle)}</h2>
+    ${p.sdesc ? `<p class="lede" style="font-size:14px">${esc(p.sdesc)}</p>` : ""}
+  </div>`;
+}
+
+function render() {
+  const p = PAGES[state.page];
+  const topbar = $("#topbar");
+  if (p.type === "intro") { topbar.style.display = "none"; }
+  else {
+    topbar.style.display = "block";
+    const answerable = PAGES.length - 2;
+    const cur = Math.min(state.page, answerable);
+    $("#stepLabel").textContent = p.type === "results" ? "Sonuçlar" : `Adım ${cur} / ${answerable}`;
+    $("#progressFill").style.width = (p.type === "results" ? 100 : Math.round(100 * (state.page - 1) / answerable)) + "%";
+  }
+  if (p.type === "intro") renderIntro();
+  else if (p.type === "likert") renderLikert(p);
+  else if (p.type === "scenario") renderScenario(p);
+  else if (p.type === "ab") renderAB(p);
+  else if (p.type === "rank") renderRank(p);
+  else if (p.type === "flow") renderFlow(p);
+  else if (p.type === "conf") renderConf(p);
+  else if (p.type === "multi") renderMulti(p);
+  else if (p.type === "open") renderOpen(p);
+  else renderResults();
+  window.scrollTo({ top: 0 });
+}
+
+function navRow(p, canNext) {
+  return `<div class="nav-row">
+    <button class="btn btn-ghost" onclick="goBack()" ${state.page <= 1 ? "style='visibility:hidden'" : ""}>← Geri</button>
+    <button class="btn" id="nextBtn" onclick="goNext()" ${canNext ? "" : "disabled"}>${state.page === PAGES.length - 2 ? "Sonuçları Gör ✦" : "Devam →"}</button>
+  </div>
+  <div class="unanswered-note" id="unNote">${canNext ? "" : "Devam için bu sayfadaki tüm soruları cevapla."}</div>`;
+}
+function goBack() { if (state.page > 0) { state.page--; render(); } }
+function goNext() { if (state.page < PAGES.length - 1) { state.page++; render(); } }
+function refreshNav(p) {
+  const ok = pageComplete(p);
+  const btn = $("#nextBtn"); if (btn) btn.disabled = !ok;
+  const note = $("#unNote"); if (note) note.textContent = ok ? "" : "Devam için bu sayfadaki tüm soruları cevapla.";
+}
+
+function pageComplete(p) {
+  const a = state.answers;
+  if (p.type === "likert") return p.items.every(it => typeof a.likert[it.id] === "number");
+  if (p.type === "scenario") return typeof a.scenarios[p.sc.id] === "number";
+  if (p.type === "ab") return p.items.every(it => a[p.key][it.id]);
+  if (p.type === "rank") return a.values.length === VALUES.length;
+  if (p.type === "flow") return (a.flow[p.fq.id] || []).length >= 1;
+  if (p.type === "conf") return CONF_ITEMS.every(c => typeof a.conf[c.id] === "number");
+  if (p.type === "multi") return (a[p.key] || []).length >= 1;
+  if (p.type === "open") return true;
+  return true;
+}
+
+/* ---- Sayfa çizimleri ---- */
+function renderIntro() {
+  app.innerHTML = `
+  <div class="card" style="padding:28px 24px">
+    <span class="section-chip">Kişisel Keşif</span>
+    <h1>Merhaba Duru 👋<br>Bu test, sana meslek söylemeyecek.</h1>
+    <p class="lede">Bunun yerine, <strong>seni sana anlatacak</strong>: nelerden gerçekten keyif aldığını, hangi çalışma tarzının sana uyduğunu, neye değer verdiğini. Sonra bu profili, geleceğin iş dünyasında en çok büyüyen alanlarla eşleştirecek — Dünya Ekonomik Forumu'nun 2030 beceri ve meslek araştırmalarına dayanarak.</p>
+    <ul class="intro-list">
+      <li><strong>7 bölüm, yaklaşık 25-30 dakika.</strong> Sessiz bir ortamda, tek seferde çözmen en iyisi.</li>
+      <li>Bilimsel temelli: Holland (RIASEC) ilgi modeli, O*NET iş değerleri ve akış (flow) göstergeleri kullanılıyor.</li>
+      <li>Sonuçta: ilgi profilin, çalışma tarzın, değerlerin ve sana en uygun 10 gelecek meslek kümesinin uyum sıralaması.</li>
+      <li>Sonuçları tek tuşla kopyalayıp derin analiz için Claude'a gönderebilirsin.</li>
+    </ul>
+    <div class="golden-rules">
+      <strong>Üç altın kural:</strong>
+      <ul>
+        <li>Doğru ya da yanlış cevap yok. Kimseyi etkilemeye çalışmıyorsun.</li>
+        <li>"Param olur mu, ailem ne der, yapabilir miyim?" — bu soruları kapıda bırak. Sadece <em>keyif alır mıydım?</em></li>
+        <li>İçinden ilk gelen cevap genellikle en doğrusudur. Çok düşünme.</li>
+      </ul>
+    </div>
+    <p class="hint">Not: Sayfayı kapatırsan cevaplar kaybolur; testi tek oturumda bitir.</p>
+    <button class="btn" onclick="goNext()" style="width:100%; padding:15px">Teste Başla →</button>
+  </div>`;
+}
+
+function renderLikert(p) {
+  app.innerHTML = sectionHead(p) + `<div class="card">` +
+    p.items.map(it => `
+      <div class="likert-item">
+        <div class="likert-q">${esc(it.text)}</div>
+        <div class="likert-scale" role="radiogroup" aria-label="${esc(it.text)}">
+          ${LIKERT_LABELS.map((lab, v) => `
+            <div class="likert-opt ${state.answers.likert[it.id] === v ? "sel" : ""}" onclick="setLikert('${it.id}',${v})" role="radio" aria-checked="${state.answers.likert[it.id] === v}">
+              <span class="dot"></span>${esc(lab)}
+            </div>`).join("")}
+        </div>
+      </div>`).join("") +
+    `</div>` + navRow(p, pageComplete(p));
+}
+function setLikert(id, v) {
+  state.answers.likert[id] = v;
+  const p = PAGES[state.page];
+  app.querySelectorAll(`.likert-item`).forEach((el, i) => {
+    const it = p.items[i];
+    el.querySelectorAll(".likert-opt").forEach((o, vi) => o.classList.toggle("sel", state.answers.likert[it.id] === vi));
+  });
+  refreshNav(p);
+}
+
+function renderScenario(p) {
+  const sel = state.answers.scenarios[p.sc.id];
+  app.innerHTML = sectionHead(p) + `
+  <div class="card">
+    <h3 style="margin-bottom:14px">${esc(p.sc.q)}</h3>
+    ${p.sc.opts.map((o, i) => `
+      <div class="choice ${sel === i ? "sel" : ""}" onclick="setScenario('${p.sc.id}',${i})">
+        <span class="radio"></span><span>${esc(o.text)}</span>
+      </div>`).join("")}
+  </div>` + navRow(p, pageComplete(p));
+}
+function setScenario(id, i) {
+  state.answers.scenarios[id] = i;
+  app.querySelectorAll(".choice").forEach((el, j) => el.classList.toggle("sel", j === i));
+  refreshNav(PAGES[state.page]);
+}
+
+function renderAB(p) {
+  app.innerHTML = sectionHead(p) + `<div class="card">` +
+    p.items.map(it => `
+      <div class="ab-q">${esc(it.q)}</div>
+      <div class="ab-row">
+        <div class="ab-opt ${state.answers[p.key][it.id] === "a" ? "sel" : ""}" onclick="setAB('${p.key}','${it.id}','a')">${esc(it.a.text || it.a)}</div>
+        <div class="ab-opt ${state.answers[p.key][it.id] === "b" ? "sel" : ""}" onclick="setAB('${p.key}','${it.id}','b')">${esc(it.b.text || it.b)}</div>
+      </div>`).join("") +
+    `</div>` + navRow(p, pageComplete(p));
+}
+function setAB(key, id, side) {
+  state.answers[key][id] = side;
+  const p = PAGES[state.page];
+  app.querySelectorAll(".ab-row").forEach((row, i) => {
+    const it = p.items[i];
+    row.children[0].classList.toggle("sel", state.answers[key][it.id] === "a");
+    row.children[1].classList.toggle("sel", state.answers[key][it.id] === "b");
+  });
+  refreshNav(p);
+}
+
+function renderRank(p) {
+  const ranked = state.answers.values;
+  app.innerHTML = sectionHead(p) + `
+  <div class="card">
+    ${VALUES.map(v => {
+      const pos = ranked.indexOf(v.id);
+      return `<div class="rank-card ${pos >= 0 ? "ranked" : ""}" onclick="toggleRank('${v.id}')">
+        <div class="rank-num">${pos >= 0 ? pos + 1 : ""}</div>
+        <div><div class="rank-title">${esc(v.title)}</div><div class="rank-desc">${esc(v.desc)}</div></div>
+      </div>`; }).join("")}
+    <div style="text-align:right; margin-top:6px">
+      <button class="btn btn-ghost" style="padding:8px 18px; font-size:13.5px" onclick="resetRank()">Sıfırla</button>
+    </div>
+  </div>` + navRow(p, pageComplete(p));
+}
+function toggleRank(id) {
+  const r = state.answers.values;
+  if (r.includes(id)) return;
+  r.push(id);
+  renderRank(PAGES[state.page]);
+}
+function resetRank() { state.answers.values = []; renderRank(PAGES[state.page]); }
+
+function renderFlow(p) {
+  const sels = state.answers.flow[p.fq.id] || [];
+  app.innerHTML = sectionHead(p) + `
+  <div class="card">
+    <h3 style="margin-bottom:4px">${esc(p.fq.q)}</h3>
+    <p class="hint">En fazla ${p.fq.max} seçenek işaretle. (${sels.length}/${p.fq.max} seçili)</p>
+    ${p.fq.opts.map((o, i) => {
+      const on = sels.includes(i);
+      const full = sels.length >= p.fq.max && !on;
+      return `<div class="choice multi ${on ? "sel" : ""} ${full ? "disabled" : ""}" onclick="toggleFlow('${p.fq.id}',${i},${p.fq.max})">
+        <span class="radio"></span><span>${esc(o.text)}</span>
+      </div>`; }).join("")}
+  </div>` + navRow(p, pageComplete(p));
+}
+function toggleFlow(id, i, max) {
+  const arr = state.answers.flow[id] = state.answers.flow[id] || [];
+  const at = arr.indexOf(i);
+  if (at >= 0) arr.splice(at, 1);
+  else { if (arr.length >= max) return; arr.push(i); }
+  renderFlow(PAGES[state.page]);
+}
+
+function renderConf(p) {
+  app.innerHTML = sectionHead(p) + `<div class="card">
+    <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--muted); margin-bottom:4px">
+      <span>1 = hiç güvenmem</span><span>5 = çok güvenirim</span>
+    </div>` +
+    CONF_ITEMS.map(c => `
+      <div class="conf-row">
+        <div class="conf-label">${esc(c.text)}</div>
+        <div class="conf-scale">
+          ${CONF_LABELS.map((lab, i) => `
+            <div class="conf-opt ${state.answers.conf[c.id] === i + 1 ? "sel" : ""}" onclick="setConf('${c.id}',${i + 1})">${lab}</div>`).join("")}
+        </div>
+      </div>`).join("") +
+    `</div>` + navRow(p, pageComplete(p));
+}
+function setConf(id, v) {
+  state.answers.conf[id] = v;
+  app.querySelectorAll(".conf-row").forEach((row, i) => {
+    const c = CONF_ITEMS[i];
+    row.querySelectorAll(".conf-opt").forEach((o, vi) => o.classList.toggle("sel", state.answers.conf[c.id] === vi + 1));
+  });
+  refreshNav(PAGES[state.page]);
+}
+
+function renderMulti(p) {
+  const sels = state.answers[p.key] || [];
+  app.innerHTML = sectionHead(p) + `
+  <div class="card">
+    <h3 style="margin-bottom:4px">${esc(p.q)}</h3>
+    <p class="hint">En fazla ${p.max} seçim. (${sels.length}/${p.max} seçili)</p>
+    ${p.items.map(o => {
+      const on = sels.includes(o.id);
+      const full = sels.length >= p.max && !on;
+      return `<div class="choice multi ${on ? "sel" : ""} ${full ? "disabled" : ""}" onclick="toggleMulti('${p.key}','${o.id}',${p.max})">
+        <span class="radio"></span><span>${esc(o.text)}</span>
+      </div>`; }).join("")}
+  </div>` + navRow(p, pageComplete(p));
+}
+function toggleMulti(key, id, max) {
+  const arr = state.answers[key];
+  const at = arr.indexOf(id);
+  if (at >= 0) arr.splice(at, 1);
+  else { if (arr.length >= max) return; arr.push(id); }
+  renderMulti(PAGES[state.page]);
+}
+
+function renderOpen(p) {
+  app.innerHTML = sectionHead(p) + `<div class="card">` +
+    OPEN_QS.map(o => `
+      <div class="open-q">${esc(o.q)}</div>
+      <textarea id="ta_${o.id}" placeholder="Buraya yaz...">${esc(state.answers.open[o.id] || "")}</textarea>`).join("") +
+    `</div>` + navRow(p, true);
+  OPEN_QS.forEach(o => {
+    $("#ta_" + o.id).addEventListener("input", e => { state.answers.open[o.id] = e.target.value; });
+  });
+}
+</script>
+<script>
+/* ============ SONUÇLAR ============ */
+function renderResults() {
+  const R = computeAll(state.answers, DATA);
+  const { riasec, axes, clusters } = R;
+  const dateStr = new Date().toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" });
+  const codeStr = riasec.code.join("");
+  const codeNames = riasec.code.map(l => RIASEC_META[l].name).join(" · ");
+
+  const riasecBars = riasec.sorted.map(l => {
+    const m = RIASEC_META[l];
+    return `<div class="bar-row">
+      <div class="bar-label">${m.name} <span style="color:var(--muted); font-weight:400">(${l})</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:${riasec.pct[l]}%; background:${m.color}"></div></div>
+      <div class="bar-val">%${riasec.pct[l]}</div>
+    </div>`;
+  }).join("");
+
+  const topMeta = RIASEC_META[riasec.code[0]];
+  const axisPos = v => (50 + v * 45) + "%";
+
+  const valuesTop = state.answers.values.slice(0, 3).map((id, i) => {
+    const v = VALUES.find(x => x.id === id);
+    return `<div class="job-item"><span class="badge">${i + 1}</span><span class="job-name">${esc(v.title)}</span><span class="job-en">${esc(v.desc)}</span></div>`;
+  }).join("");
+
+  const envSummary = ENV_PREFS.map(e => {
+    const sel = state.answers.env[e.id];
+    return sel ? `<span class="skill-chip">${esc(sel === "a" ? e.a : e.b)}</span>` : "";
+  }).join("");
+
+  const confBars = CONF_ITEMS.map(c => {
+    const v = state.answers.conf[c.id] || 0;
+    return `<div class="mini-row">
+      <span>${esc(c.text)}</span>
+      <div class="mini-track"><div style="width:${(v / 5) * 100}%; background:var(--seq-400)"></div></div>
+      <span style="font-weight:700; font-variant-numeric:tabular-nums">${v}/5</span>
+    </div>`;
+  }).join("");
+
+  const top5 = clusters.slice(0, 5);
+  const rest = clusters.slice(5);
+  const clusterCards = top5.map((c, i) => {
+    const cl = CLUSTERS.find(x => x.id === c.id);
+    return `<div class="cluster-card">
+      <div class="cluster-head">
+        <div class="cluster-rank">${i + 1}</div>
+        <div class="cluster-title">${esc(cl.name)}</div>
+        <div class="cluster-pct">%${c.pct}</div>
+      </div>
+      <div class="cluster-bar"><div style="width:${c.pct}%; background:var(--seq-400)"></div></div>
+      <div class="cluster-note">${esc(cl.note)}</div>
+      <div class="job-list">
+        ${cl.jobs.map(j => `<div class="job-item"><span class="job-name">${esc(j.name)}</span><span class="job-en">${esc(j.en)}</span><span class="badge">${esc(j.badge)}</span></div>`).join("")}
+      </div>
+      <div class="skill-chips">${cl.skills.map(s => `<span class="skill-chip">2030 becerisi: ${esc(s)}</span>`).join("")}</div>
+      ${c.interestHighConfLow ? `<div class="flag" style="margin-top:10px"><strong>Not:</strong> İlgin güçlü ama bu alandaki kendine güvenin şimdilik düşük. Bu bir engel değil, gelişim alanı — küçük bir deneme projesiyle test etmeye değer.</div>` : ""}
+    </div>`;
+  }).join("");
+
+  const restRows = rest.map(c => `
+    <div class="mini-row">
+      <span>${esc(c.name)}</span>
+      <div class="mini-track"><div style="width:${c.pct}%"></div></div>
+      <span style="font-weight:700; font-variant-numeric:tabular-nums">%${c.pct}</span>
+    </div>`).join("");
+
+  app.innerHTML = `
+  <div class="res-header">
+    <span class="section-chip">Sonuçlar</span>
+    <h1>Duru'nun Keşif Profili</h1>
+    <div class="res-date">${dateStr}</div>
+    <div class="code-badge">
+      ${riasec.code.map(l => `<div class="code-letter" style="background:${RIASEC_META[l].color}">${l}</div>`).join("")}
+    </div>
+    <div class="code-name">${codeStr} — ${codeNames}</div>
+    <p class="lede" style="max-width:520px; margin:10px auto 0; font-size:14px">${esc(topMeta.desc)}</p>
+  </div>
+
+  ${riasec.lowDifferentiation ? `<div class="flag"><strong>Profil notu:</strong> İlgi puanların birbirine çok yakın çıktı (düz profil). Bu, "her şeye biraz açığım" demek — sonuçları kesin hüküm gibi değil, keşfe devam işareti olarak oku. Açık uçlu cevaplar ve derin analiz bu durumda daha da önemli.</div>` : ""}
+
+  <div class="card">
+    <h3 style="margin-bottom:10px">İlgi Profilin (RIASEC)</h3>
+    ${riasecBars}
+    <p class="hint" style="margin:10px 0 0">En yüksek 2-3 harf senin "Holland kodun". Araştırmalar, ilgi profiline uyan bölüm seçenlerin daha başarılı ve kalıcı olduğunu gösteriyor.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-bottom:6px">Çalışma Tarzın</h3>
+    <div class="axis-wrap">
+      <div class="axis-labels"><span>Nesnelerle / teknikle</span><span>İnsanlarla</span></div>
+      <div class="axis-track"><div class="axis-knob" style="left:${axisPos(axes.peopleThings)}"></div></div>
+    </div>
+    <div class="axis-wrap">
+      <div class="axis-labels"><span>Veri ve düzenle</span><span>Fikir ve olasılıklarla</span></div>
+      <div class="axis-track"><div class="axis-knob" style="left:${axisPos(axes.dataIdeas)}"></div></div>
+    </div>
+    <h3 style="margin:16px 0 8px">Tercih Ettiğin Ortam</h3>
+    <div class="skill-chips">${envSummary}</div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-bottom:10px">En Önemli Değerlerin</h3>
+    <div class="job-list">${valuesTop}</div>
+    <p class="hint" style="margin-top:8px">İlgiler hangi alanı seçeceğini söyler; değerler o alanda mutlu olup olmayacağını öngörür.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-bottom:10px">Kendine Güven Haritan</h3>
+    <div class="mini-clusters">${confBars}</div>
+  </div>
+
+  <h2 style="margin:26px 0 4px">Sana En Uygun Gelecek Meslek Kümeleri</h2>
+  <p class="hint">Uyum skoru: %50 ilgi profili + %25 kendine güven + %25 teknoloji ve dünya sorunu ilgisi. Kaynaklar: WEF Future of Jobs 2025, ABD BLS 2024-34 projeksiyonları, LinkedIn Jobs on the Rise 2025-26.</p>
+  ${clusterCards}
+
+  <div class="card">
+    <h3 style="margin-bottom:10px">Diğer Kümeler</h3>
+    <div class="mini-clusters">${restRows}</div>
+  </div>
+
+  <div class="copy-box">
+    <h3>Sıradaki adım: derin analiz</h3>
+    <p>Aşağıdaki düğme tüm cevaplarını ve skorlarını panoya kopyalar. Metni Claude'a yapıştır — profilini derinlemesine yorumlayıp meslek ve ülke/okul önerilerine dönüştürelim.</p>
+    <button class="btn" onclick="copyResults(this)">Sonuçları Kopyala 📋</button>
+  </div>
+
+  <div class="nav-row">
+    <button class="btn btn-ghost" onclick="goBack()">← Cevaplara Dön</button>
+    <button class="btn btn-ghost" onclick="restart()">Testi Sıfırla</button>
+  </div>
+
+  <p class="footer-note">Bu test bir hüküm değil, bir keşif haritasıdır. Metodoloji: Holland RIASEC ilgi modeli, O*NET iş değerleri, Prediger çalışma tarzı eksenleri, akış göstergeleri ve öz-yeterlik.<br>Meslek verileri: WEF Future of Jobs Report 2025 · ABD BLS Employment Projections 2024-34 · LinkedIn Jobs on the Rise 2025-26 · McKinsey Global Institute.</p>`;
+}
+
+function restart() {
+  if (!confirm("Tüm cevaplar silinecek. Emin misin?")) return;
+  state.page = 0;
+  state.answers = { likert:{}, scenarios:{}, prediger:{}, env:{}, values:[], flow:{}, conf:{}, problems:[], techs:[], open:{} };
+  render();
+}
+
+function buildExport() {
+  const R = computeAll(state.answers, DATA);
+  const a = state.answers;
+  const L = [];
+  L.push("=== DURU — KARİYER KEŞİF TESTİ SONUÇLARI ===");
+  L.push("Tarih: " + new Date().toLocaleDateString("tr-TR"));
+  L.push("");
+  L.push("— RIASEC PROFİLİ —");
+  L.push("Holland kodu: " + R.riasec.code.join("") + " (" + R.riasec.code.map(l => RIASEC_META[l].name).join("-") + ")");
+  R.riasec.sorted.forEach(l => L.push(`  ${l} ${RIASEC_META[l].name} (${RIASEC_META[l].en}): %${R.riasec.pct[l]}`));
+  L.push("Farklılaşma (max-min): " + R.riasec.spread + (R.riasec.lowDifferentiation ? " — DÜŞÜK (düz profil, dikkat)" : ""));
+  L.push("");
+  L.push("— ÇALIŞMA TARZI EKSENLERİ —");
+  L.push("İnsan(+1)↔Nesne(-1): " + R.axes.peopleThings.toFixed(2));
+  L.push("Fikir(+1)↔Veri(-1): " + R.axes.dataIdeas.toFixed(2));
+  L.push("Ortam tercihleri:");
+  ENV_PREFS.forEach(e => { const s = a.env[e.id]; if (s) L.push("  · " + (s === "a" ? e.a : e.b)); });
+  L.push("");
+  L.push("— DEĞER SIRALAMASI (1=en önemli) —");
+  a.values.forEach((id, i) => { const v = VALUES.find(x => x.id === id); L.push(`  ${i + 1}. ${v.title} (${v.en})`); });
+  L.push("");
+  L.push("— KENDİNE GÜVEN (1-5) —");
+  CONF_ITEMS.forEach(c => L.push(`  ${c.text}: ${a.conf[c.id] || "-"}`));
+  L.push("");
+  L.push("— DÜNYA SORUNLARI (seçilen) —");
+  (a.problems || []).forEach(id => L.push("  · " + PROBLEMS.find(p => p.id === id).text));
+  L.push("— HEYECANLANDIRAN TEKNOLOJİLER —");
+  (a.techs || []).forEach(id => L.push("  · " + TECHS.find(t => t.id === id).text));
+  L.push("");
+  L.push("— MESLEK KÜMESİ UYUM SKORLARI —");
+  R.clusters.forEach((c, i) => L.push(`  ${i + 1}. ${c.name}: %${c.pct} (ilgi ${Math.round(c.riasecScore * 100)}, güven ${Math.round(c.confScore * 100)}, tek ${c.techScore}, sorun ${c.probScore})${c.interestHighConfLow ? " [ilgi yüksek/güven düşük]" : ""}`));
+  L.push("");
+  L.push("— AKIŞ SORULARI SEÇİMLERİ —");
+  FLOW_QS.forEach(fq => {
+    const sels = a.flow[fq.id] || [];
+    L.push("  " + fq.q);
+    sels.forEach(i => L.push("    · " + fq.opts[i].text + " [" + fq.opts[i].t + "]"));
+  });
+  L.push("");
+  L.push("— SENARYO SEÇİMLERİ —");
+  SCENARIOS.forEach(sc => {
+    const s = a.scenarios[sc.id];
+    if (typeof s === "number") L.push("  " + sc.q + " → " + sc.opts[s].text + " [" + sc.opts[s].t + "]");
+  });
+  L.push("");
+  L.push("— AÇIK UÇLU CEVAPLAR —");
+  OPEN_QS.forEach(o => { L.push("  S: " + o.q); L.push("  C: " + (a.open[o.id] || "(boş)")); });
+  L.push("");
+  L.push("— TÜM LIKERT CEVAPLARI (0=hiç hoşlanmam ... 4=çok hoşlanırım) —");
+  LIKERT_ITEMS.forEach(it => L.push(`  [${it.t}] ${it.text}: ${typeof a.likert[it.id] === "number" ? a.likert[it.id] : "-"}`));
+  L.push("");
+  L.push("Not: Bu çıktıyı Claude'a yapıştırın — 'Duru Bölüm Okul Seçimi' projesindeki derin analiz için hazırlanmıştır.");
+  return L.join("\n");
+}
+
+function copyResults(btn) {
+  const text = buildExport();
+  const done = () => { btn.textContent = "Kopyalandı ✓"; setTimeout(() => { btn.textContent = "Sonuçları Kopyala 📋"; }, 2500); };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+  } else fallbackCopy(text, done);
+}
+function fallbackCopy(text, done) {
+  const ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); done(); } catch (e) {}
+  document.body.removeChild(ta);
+}
+
+render();
+</script>
+</body>
+</html>

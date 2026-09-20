@@ -1,0 +1,471 @@
+[
+  {
+    "id": "ai_data",
+    "name": "Yapay Zekâ & Veri Bilimi",
+    "riasec": {
+      "I": 3,
+      "C": 1.5,
+      "R": 0.5
+    },
+    "tech": [
+      "ai"
+    ],
+    "problems": [
+      "ai"
+    ],
+    "conf": [
+      "c_math",
+      "c_coding"
+    ],
+    "note": "WEF'e göre 'yapay zekâ ve büyük veri' 2030'un önemi en hızlı artan becerisi. Bu küme, geleceğin iş piyasasının merkezinde.",
+    "skills": [
+      "Yapay zekâ ve büyük veri",
+      "Analitik düşünme",
+      "Teknoloji okuryazarlığı"
+    ],
+    "jobs": [
+      {
+        "name": "Yapay Zekâ / ML Mühendisi",
+        "en": "AI & Machine Learning Engineer",
+        "badge": "LinkedIn 2025 ve 2026 #1 iş"
+      },
+      {
+        "name": "Veri Bilimci",
+        "en": "Data Scientist",
+        "badge": "ABD'de +%33 büyüme (2024-34)"
+      },
+      {
+        "name": "Büyük Veri Uzmanı",
+        "en": "Big Data Specialist",
+        "badge": "WEF: en hızlı büyüyen meslek"
+      },
+      {
+        "name": "YZ Etiği ve Yönetişimi Uzmanı",
+        "en": "AI Governance Specialist",
+        "badge": "Yeni ve büyüyen alan"
+      }
+    ]
+  },
+  {
+    "id": "software_cyber",
+    "name": "Yazılım & Siber Güvenlik",
+    "riasec": {
+      "I": 2.5,
+      "C": 2,
+      "R": 1
+    },
+    "tech": [
+      "ai",
+      "cybertech"
+    ],
+    "problems": [
+      "cyber"
+    ],
+    "conf": [
+      "c_coding",
+      "c_math"
+    ],
+    "note": "Siber güvenlik YZ-tamamlayıcı ve açık pozisyon dolu bir alan. Rutin giriş-seviye kodlama YZ'ye açık; uzmanlaşmış ve mimari roller güçlü kalıyor.",
+    "skills": [
+      "Ağlar ve siber güvenlik",
+      "Teknoloji okuryazarlığı",
+      "Analitik düşünme"
+    ],
+    "jobs": [
+      {
+        "name": "Siber Güvenlik Uzmanı",
+        "en": "Cybersecurity / Information Security Analyst",
+        "badge": "Küresel ~4,8M açık pozisyon"
+      },
+      {
+        "name": "Yazılım Mimarı / Uzman Geliştirici",
+        "en": "Software Architect",
+        "badge": "WEF: hızlı büyüyen"
+      },
+      {
+        "name": "Bulut / DevOps Mühendisi",
+        "en": "Cloud & DevOps Engineer",
+        "badge": "YZ altyapı patlaması"
+      },
+      {
+        "name": "Robotik Yazılım Mühendisi",
+        "en": "Robotics Software Engineer",
+        "badge": "Fiziksel YZ = dirençli alan"
+      }
+    ]
+  },
+  {
+    "id": "engineering",
+    "name": "Mühendislik & Robotik",
+    "riasec": {
+      "R": 3,
+      "I": 2.5
+    },
+    "tech": [
+      "robotics"
+    ],
+    "problems": [],
+    "conf": [
+      "c_physics",
+      "c_math",
+      "c_hands"
+    ],
+    "note": "Fiziksel dünya mühendisliği YZ'ye en dirençli alanlardan: makineyi kuran, anlık muhakeme yapan insan kolay otomatikleşmiyor.",
+    "skills": [
+      "Teknoloji okuryazarlığı",
+      "Analitik düşünme",
+      "Sistem düşüncesi"
+    ],
+    "jobs": [
+      {
+        "name": "Mekatronik / Robotik Mühendisi",
+        "en": "Robotics & Mechatronics Engineer",
+        "badge": "Otomasyon çağının kurucusu"
+      },
+      {
+        "name": "Çip Tasarım Mühendisi",
+        "en": "Semiconductor Design Engineer",
+        "badge": "2030'a ~1M ek uzman ihtiyacı"
+      },
+      {
+        "name": "Otonom / Elektrikli Araç Uzmanı",
+        "en": "Autonomous & EV Specialist",
+        "badge": "WEF: en hızlı büyüyenlerden"
+      },
+      {
+        "name": "Havacılık ve Uzay Mühendisi",
+        "en": "Aerospace Engineer",
+        "badge": "Uzay ekonomisi $1,8T'ye gidiyor"
+      }
+    ]
+  },
+  {
+    "id": "green",
+    "name": "Yeşil Enerji & İklim",
+    "riasec": {
+      "I": 2.5,
+      "R": 2
+    },
+    "tech": [
+      "energy"
+    ],
+    "problems": [
+      "climate",
+      "food"
+    ],
+    "conf": [
+      "c_physics",
+      "c_math"
+    ],
+    "note": "Yeşil dönüşüm on yıllarca sürecek bir talep yaratıyor; 'çevresel koruma' WEF'in 2030 becerileri top 10'una yeni girdi.",
+    "skills": [
+      "Çevresel koruma",
+      "Analitik düşünme",
+      "Sistem düşüncesi"
+    ],
+    "jobs": [
+      {
+        "name": "Yenilenebilir Enerji Mühendisi",
+        "en": "Renewable Energy Engineer",
+        "badge": "WEF: en hızlı büyüyenlerden"
+      },
+      {
+        "name": "Çevre Mühendisi",
+        "en": "Environmental Engineer",
+        "badge": "WEF: en hızlı büyüyenlerden"
+      },
+      {
+        "name": "Enerji Sistemleri / Şebeke Mühendisi",
+        "en": "Energy Systems Engineer",
+        "badge": "Kronik uzman açığı"
+      },
+      {
+        "name": "İklim Bilimci / Risk Modelleyici",
+        "en": "Climate Scientist",
+        "badge": "Sigorta ve finans da işe alıyor"
+      }
+    ]
+  },
+  {
+    "id": "medicine",
+    "name": "Tıp & Klinik Sağlık",
+    "riasec": {
+      "I": 3,
+      "S": 2.5
+    },
+    "tech": [
+      "healthtech"
+    ],
+    "problems": [
+      "health"
+    ],
+    "conf": [
+      "c_bio"
+    ],
+    "note": "Sağlık, YZ'ye en dirençli küme: lisans/ruhsat bariyeri var ve YZ hekimin yerini almak yerine onu güçlendiriyor. Yaşlanan dünya talebi artırıyor.",
+    "skills": [
+      "Empati ve aktif dinleme",
+      "Analitik düşünme",
+      "Teknoloji okuryazarlığı"
+    ],
+    "jobs": [
+      {
+        "name": "Hekim (YZ-destekli uzmanlıklar)",
+        "en": "Physician / MD",
+        "badge": "ABD'de yeni işlerin ~1/3'ü sağlıkta"
+      },
+      {
+        "name": "Diş Hekimi",
+        "en": "Dentist",
+        "badge": "Güçlü gelir ve güvence"
+      },
+      {
+        "name": "Epidemiyolog / Halk Sağlığı Uzmanı",
+        "en": "Epidemiologist",
+        "badge": "Pandemi sonrası kalıcı yatırım"
+      },
+      {
+        "name": "Sağlık Bilişimi Uzmanı",
+        "en": "Health Informatics Specialist",
+        "badge": "Klinik + teknik hibrit"
+      }
+    ]
+  },
+  {
+    "id": "biotech",
+    "name": "Biyoteknoloji & Biyoinformatik",
+    "riasec": {
+      "I": 3,
+      "C": 1,
+      "R": 1
+    },
+    "tech": [
+      "biotech",
+      "ai"
+    ],
+    "problems": [
+      "health",
+      "food"
+    ],
+    "conf": [
+      "c_bio",
+      "c_coding"
+    ],
+    "note": "AlphaFold çağında biyoloji hesaplamalı bir bilime dönüştü. Bio × veri hibriti kıt, otomasyona dirençli ve iki çıkış pazarlı.",
+    "skills": [
+      "Yapay zekâ ve büyük veri",
+      "Analitik düşünme",
+      "Merak ve yaşam boyu öğrenme"
+    ],
+    "jobs": [
+      {
+        "name": "Biyoinformatik Uzmanı",
+        "en": "Bioinformatician / Computational Biologist",
+        "badge": "Pharma'nın çekirdek işi"
+      },
+      {
+        "name": "Biyomedikal Mühendisi",
+        "en": "Biomedical Engineer",
+        "badge": "Yaşlanan dünya + giyilebilir sağlık"
+      },
+      {
+        "name": "Sentetik Biyoloji Araştırmacısı",
+        "en": "Synthetic Biology Scientist",
+        "badge": "Ulusal öncelik alanı (ABD/AB)"
+      },
+      {
+        "name": "Genetik Danışman",
+        "en": "Genetic Counselor",
+        "badge": "Kişisel tıp büyüyor"
+      }
+    ]
+  },
+  {
+    "id": "finance",
+    "name": "Finans & Quant",
+    "riasec": {
+      "C": 2.5,
+      "E": 2,
+      "I": 1.5
+    },
+    "tech": [
+      "fintech"
+    ],
+    "problems": [
+      "finance"
+    ],
+    "conf": [
+      "c_math"
+    ],
+    "note": "FinTech Mühendisi WEF'in en hızlı büyüyen 2. mesleği. Matematik gücü bu kümenin giriş bileti; YZ modelleri denetleyen insana talep artıyor.",
+    "skills": [
+      "Yapay zekâ ve büyük veri",
+      "Analitik düşünme",
+      "Dayanıklılık ve çeviklik"
+    ],
+    "jobs": [
+      {
+        "name": "FinTech Mühendisi",
+        "en": "FinTech Engineer",
+        "badge": "WEF: en hızlı büyüyen #2"
+      },
+      {
+        "name": "Aktüer",
+        "en": "Actuary",
+        "badge": "ABD'de +%22 büyüme, yüksek gelir"
+      },
+      {
+        "name": "Quant Analist / Araştırmacı",
+        "en": "Quantitative Analyst",
+        "badge": "Giriş maaşları piyasanın zirvesi"
+      },
+      {
+        "name": "İklim / ESG Risk Analisti",
+        "en": "Climate Risk Analyst",
+        "badge": "Yeni ve hızla kurumsallaşan alan"
+      }
+    ]
+  },
+  {
+    "id": "design_tech",
+    "name": "Tasarım & İnsan-Teknoloji Etkileşimi",
+    "riasec": {
+      "A": 3,
+      "I": 1.5
+    },
+    "tech": [
+      "games",
+      "ai"
+    ],
+    "problems": [],
+    "conf": [
+      "c_design"
+    ],
+    "note": "UX/UI, WEF'in hızlı büyüyenler listesinde; ama rutin görsel üretim YZ'ye açık. Savunulabilir taraf: kullanıcı araştırması ve insan-YZ etkileşimi tasarımı.",
+    "skills": [
+      "Yaratıcı düşünme",
+      "Tasarım ve kullanıcı deneyimi",
+      "Empati ve aktif dinleme"
+    ],
+    "jobs": [
+      {
+        "name": "UX / UI Tasarımcısı",
+        "en": "UX/UI Designer",
+        "badge": "WEF: hızlı büyüyen"
+      },
+      {
+        "name": "İnsan-Bilgisayar Etkileşimi Uzmanı",
+        "en": "HCI Researcher",
+        "badge": "YZ'nin arayüz katmanı"
+      },
+      {
+        "name": "Oyun Tasarımcısı / Geliştiricisi",
+        "en": "Game Designer / Developer",
+        "badge": "Yaratıcılık + kod hibriti"
+      },
+      {
+        "name": "İnsan-YZ Etkileşim Tasarımcısı",
+        "en": "Human-AI Interaction Designer",
+        "badge": "Yükselen niş"
+      }
+    ]
+  },
+  {
+    "id": "business",
+    "name": "Girişimcilik & Ürün Yönetimi",
+    "riasec": {
+      "E": 3,
+      "S": 1,
+      "I": 1
+    },
+    "tech": [
+      "fintech",
+      "ai"
+    ],
+    "problems": [
+      "finance",
+      "education"
+    ],
+    "conf": [
+      "c_speaking",
+      "c_org"
+    ],
+    "note": "Liderlik ve sosyal etki WEF 2030 becerilerinde 3. sırada. Teknolojiyi anlayan ve insanları yönlendirebilen hibrit profiller kıt.",
+    "skills": [
+      "Liderlik ve sosyal etki",
+      "Yaratıcı düşünme",
+      "Dayanıklılık ve çeviklik"
+    ],
+    "jobs": [
+      {
+        "name": "Ürün Yöneticisi",
+        "en": "Product Manager",
+        "badge": "Teknoloji + iş hibriti"
+      },
+      {
+        "name": "Teknoloji Girişimcisi",
+        "en": "Tech Entrepreneur",
+        "badge": "Kendi işini kurma yolu"
+      },
+      {
+        "name": "YZ Danışmanı / Stratejisti",
+        "en": "AI Consultant",
+        "badge": "LinkedIn 2026 #2 iş"
+      },
+      {
+        "name": "İnovasyon / Strateji Uzmanı",
+        "en": "Innovation Strategist",
+        "badge": "Her sektörde talep"
+      }
+    ]
+  },
+  {
+    "id": "frontier",
+    "name": "Uzay, Kuantum & Sınır Teknolojileri",
+    "riasec": {
+      "I": 3,
+      "R": 2
+    },
+    "tech": [
+      "quantum",
+      "space",
+      "bci"
+    ],
+    "problems": [
+      "space",
+      "ai"
+    ],
+    "conf": [
+      "c_physics",
+      "c_math"
+    ],
+    "note": "Bugün küçük, 2035'te dev olacak alanlar: kuantumda her 2-3 açık pozisyona 1 nitelikli aday düşüyor; uzay ekonomisi $1,8T'ye koşuyor.",
+    "skills": [
+      "Analitik düşünme",
+      "Merak ve yaşam boyu öğrenme",
+      "Yapay zekâ ve büyük veri"
+    ],
+    "jobs": [
+      {
+        "name": "Kuantum Bilişim Mühendisi",
+        "en": "Quantum Computing Engineer",
+        "badge": "Ciddi yetenek açığı"
+      },
+      {
+        "name": "Uzay Endüstrisi Müh. / Uydu Veri Analisti",
+        "en": "Space Industry Engineer",
+        "badge": "$1,8T pazar öngörüsü (2035)"
+      },
+      {
+        "name": "Nöroteknoloji / BCI Mühendisi",
+        "en": "Neurotechnology Engineer",
+        "badge": "Sıfırdan kurulan sektör"
+      },
+      {
+        "name": "YZ Güvenliği Araştırmacısı",
+        "en": "AI Safety Researcher",
+        "badge": "Talep arzın çok üstünde"
+      }
+    ]
+  }
+]

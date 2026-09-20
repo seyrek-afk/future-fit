@@ -1,0 +1,44 @@
+{
+  "R": {
+    "name": "Yapıcı",
+    "en": "Realistic",
+    "color": "var(--s1)",
+    "hex": "#2a78d6",
+    "desc": "Elle ve araçlarla somut şeyler üretmeyi, kurmayı, çalıştırmayı sever."
+  },
+  "I": {
+    "name": "Araştırmacı",
+    "en": "Investigative",
+    "color": "var(--s2)",
+    "hex": "#008300",
+    "desc": "Anlamayı, analiz etmeyi, problem çözmeyi ve keşfetmeyi sever."
+  },
+  "A": {
+    "name": "Yaratıcı",
+    "en": "Artistic",
+    "color": "var(--s3)",
+    "hex": "#e87ba4",
+    "desc": "Özgün fikirler üretmeyi, tasarlamayı ve kendini ifade etmeyi sever."
+  },
+  "S": {
+    "name": "Sosyal",
+    "en": "Social",
+    "color": "var(--s4)",
+    "hex": "#eda100",
+    "desc": "İnsanlara yardım etmeyi, öğretmeyi ve birlikte çalışmayı sever."
+  },
+  "E": {
+    "name": "Girişimci",
+    "en": "Enterprising",
+    "color": "var(--s5)",
+    "hex": "#1baf7a",
+    "desc": "Liderlik etmeyi, ikna etmeyi ve hedefe yönelik risk almayı sever."
+  },
+  "C": {
+    "name": "Düzenleyici",
+    "en": "Conventional",
+    "color": "var(--s6)",
+    "hex": "#eb6834",
+    "desc": "Düzen kurmayı, veriyle çalışmayı ve sistemli ilerlemeyi sever."
+  }
+}
