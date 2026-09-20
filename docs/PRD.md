@@ -27,7 +27,13 @@ ama v2 tek dil yayınlanır, çeviri altyapısı fazladan iş yaratmamalı.
 2. **Kaynak görünür.** Her rozetin yanında kaynak kısaltması ve yılı vardır; tıklanınca künye açılır.
 3. **Terk edilebilirlik.** 15 dakikalık bir test uzundur: ilerleme kaydedilir, kaldığı yerden devam eder.
 4. **Telefon önce.** Kullanıcıların çoğu telefondan girecek; Likert ızgarası küçük ekranda çalışmalı.
-5. **Sessiz tasarım.** Animasyon ve dekoratif görsel yok; okunabilirlik ve karşıtlık öncelikli.
+5. **Sessiz tasarım.** Okunabilirlik ve karşıtlık öncelikli. *(v2'de sınırlı gevşetme:* hedef
+   kitle 15-18 yaş olduğu için etkileşim anına bağlı kısa geçişler (120-200ms), CSS ile çizilmiş
+   veri geometrisi (RIASEC altıgeni) ve RIASEC tip renklerinin cesur kullanımı serbesttir.
+   Kendiliğinden oynayan, kayan ya da parlayan hiçbir şey yok; dekoratif stok görsel yok;
+   `prefers-reduced-motion` mutlaktır.*)
+6. **Az metin, çok sonuç.** Rapor sonuçla açılır; gerekçe ve uyarı metinleri silinmez, açılır
+   bloklara ertelenir. Her dürüstlük cümlesinin kısa hâli her zaman görünür kalır.
 
 ## 4. Akış
 
@@ -46,8 +52,26 @@ Giriş → Bölüm 1 İlgi (Likert, 6 sayfa × 6 madde)
 - Her bölümün başında tek cümlelik "bu bölüm neyi ölçüyor" açıklaması.
 - Zorunlu alan yok; eksik cevaplar skorlamada maksimum tabanından düşülür (bkz. METHODOLOGY §3).
 - Üst çubukta: ilerleme yüzdesi, "kaydedildi" göstergesi, sonuçları silme düğmesi.
+- Yüzdenin altında **bölüm şeridi**: 8 bölümün her biri için cevaplanan/toplam oranı
+  (`boş / yarım / tamam`); bir segmente dokunmak o bölüme atlar.
 
 ## 5. Rapor bölümleri
+
+Hedef kitle lise çağında olduğu için rapor **sonuç önce** kurgulanır: en üstte tek ekrana
+sığan bir **özet** (Holland kodu, RIASEC altıgeni, en çok örtüşen 3 alan, en güçlü 3 beceri),
+ardından **içindekiler**, sonra aşağıdaki 11 bölüm **üç ana bölüm + "Ek bilgiler"** altında
+gruplanır:
+
+| Ana bölüm | İçerir |
+|---|---|
+| 1. Kişisel tanıtım | İlgi profili · Çalışma tarzı · Değerler · Kendine güven |
+| 2. 2030 beceri radarı | Güçlü yanlar · Yatırım alanları · WEF yükselen 10 |
+| 3. Meslek kümeleri | İlk 5 kümenin kartı |
+| Ek bilgiler | Diğer kümeler · YZ merceği · Sonraki adımlar ve çıktılar · Kaynaklar ve künye |
+
+Uzun gerekçe metinleri **silinmez, ertelenir**: açılır bloklara (`Explainer`) girer ve baskıda
+zorla açılır. Her dürüstlük cümlesinin kısa hâli her zaman görünür kalır.
+
 
 1. **Başlık** — isteğe bağlı isim, tarih, Holland kodu (3 harf) ve kodun tek cümlelik anlamı.
 2. **İlgi profili** — 6 tipin yüzde çubukları; `explorationMode` bayrağı varsa uyarı kutusu.
@@ -80,8 +104,11 @@ StreamTr ile aynı düzen — tanıdık olsun:
 - React 18 + Vite 5, JavaScript (TypeScript yok).
 - Durum yönetimi: tek `useReducer` + Context. Harici state kütüphanesi yok.
 - Stil: CSS değişkenleriyle düz CSS (`src/index.css`), v1'deki token adları korunur
-  (`--surface-1`, `--text-primary`, `--accent`, `--good/--warn/--bad`). Açık/koyu tema
-  `prefers-color-scheme` ile; `[data-theme]` ile elle geçiş.
+  (`--surface-1`, `--text-primary`, `--accent`, `--good/--warn/--bad`). **Tek tema: koyu.**
+  Açık tema v2'de kaldırıldı (`prefers-color-scheme` dalı ve `[data-theme]` anahtarı yok);
+  yalnızca baskı çıktısı açık palete geçer (`src/styles/print.css`). Tasarım dili: `docs/DESIGN.md`.
+  Üzerinde metin taşıyan vurgu yüzeyleri `--accent-fill` + `--accent-ink` çiftini, bağlantılar
+  `--accent-link` kullanır — AA karşıtlığı bu ayrımla garanti edilir.
 - İkonlar: `lucide-react`.
 - Test: `vitest` + `@testing-library/react`.
 - Veri: `data/*.json` build sırasında import edilir; çalışma zamanında ağ isteği yok.

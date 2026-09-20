@@ -1,0 +1,460 @@
+/* Açılış sayfası — hedef okur: 15-18 yaş lise öğrencisi.
+ *
+ * Kayıt: "ölçüm föyü" — kart ızgarası değil, çizgilerle bölünmüş tek sütun.
+ * Uygulamanın geri kalanı kartlarla çalışır; landing bilerek kartsızdır ve
+ * sayfada TEK bir yüzeyli panel vardır: "Ne yapmaz". Bu asimetri kasıtlıdır —
+ * tek panel gözü doğrudan dürüstlük sözleşmesine götürür.
+ *
+ * Cesaret tipografiden ve tek anlamlı görselden gelir: başlık gövde metninin
+ * ~2.5 katı, ve Holland altıgeni RIASEC tip renklerini (--s1..--s6) canlı kullanır.
+ * Altıgen dekor değil, ürünün ölçtüğü modelin kendisidir.
+ *
+ * Hareket: yalnızca etkileşim anında (basma, hover), 140-160ms. Kendiliğinden
+ * oynayan, parlayan, kayan hiçbir şey yok; prefers-reduced-motion index.css'te mutlak.
+ *
+ * Telefon önce: 360/390/640px'te yatay kaydırma yok (ölçüldü); hero 620px
+ * altında tek sütuna iner, künye şeridi öksüz ayraç bırakmadan sarar.
+ */
+
+.landing {
+  max-width: 720px;
+  margin-inline: auto;
+  overflow-wrap: break-word;
+}
+
+/* ---------- hero ---------- */
+
+.landing-hero {
+  padding-top: var(--space-4);
+}
+
+.landing-title {
+  margin: 0;
+  font-size: clamp(1.85rem, 1.35rem + 2.2vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+  color: var(--text-primary);
+}
+
+/* Odak halkası büyük başlıkta metne yapışmasın. */
+.landing-title:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 6px;
+  border-radius: 6px;
+}
+
+.landing-lead {
+  margin: var(--space-4) 0 0;
+  max-width: 56ch;
+  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.175rem);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
+/* ---------- künye şeridi (tr.intro.duration'ın "·" parçaları) ---------- */
+
+.landing-spec {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.landing-spec li {
+  display: flex;
+  align-items: center;
+}
+
+/* Ayraç, parçalar ARASINA değil her parçanın ÖNÜNE konur: şerit ikinci satıra
+   sardığında satır başında öksüz bir ayraç kalmaz. 360px'te iki satıra iner. */
+.landing-spec li::before {
+  content: '';
+  flex: none;
+  width: 4px;
+  height: 4px;
+  margin-right: var(--space-2);
+  border-radius: 50%;
+  background: var(--baseline);
+}
+
+/* ---------- eylemler ---------- */
+
+.landing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.landing-actions-hero {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: var(--space-6);
+}
+
+.landing-fineprint {
+  margin: 0;
+  max-width: 54ch;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* Basma cevabı — yalnızca landing kapsamında, uygulamanın geri kalanının
+   hissini değiştirmemek için. Düzen kaymaz; yalnızca ölçek. */
+.landing .btn {
+  transition:
+    background-color var(--dur-2) var(--ease-1),
+    transform var(--dur-2) var(--ease-1);
+}
+.landing .btn:active:not(:disabled) {
+  transform: scale(0.975);
+}
+
+/* İkincil düğmenin sınırı --grid ile 1.42:1 kalıyordu; bir KONTROL sınırı
+   WCAG 1.4.11'e göre 3:1 ister. --baseline ile 3.06:1. Yalnızca landing
+   kapsamında düzeltildi — survey.css'e dokunulmadı. */
+
+/* Ok, imleç üzerindeyken 3px ilerler: yön duygusu, dikkat çalan animasyon değil.
+   .btn'in gap'i sabit olduğu için düzen kaymaz. Dokunmatikte hiç çalışmaz. */
+@media (hover: hover) {
+  .landing-go svg {
+    transition: transform var(--dur-3) var(--ease-1);
+  }
+  .landing-go:hover:not(:disabled) svg {
+    transform: translateX(3px);
+  }
+}
+
+/* ---------- yarım kalmış oturum ---------- */
+
+.landing-resume {
+  margin-top: var(--space-6);
+  padding: var(--space-4) var(--space-5) var(--space-5);
+  background: var(--surface-1);
+  border: 1px solid var(--grid);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+}
+
+.landing-resume-note {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.landing-meter {
+  margin-top: var(--space-3);
+  height: 6px;
+  border-radius: 99px;
+  background: var(--grid);
+  overflow: hidden;
+}
+
+.landing-meter-fill {
+  display: block;
+  height: 100%;
+  border-radius: 99px;
+  background: var(--accent);
+}
+
+.landing-resume-pct {
+  margin: var(--space-2) 0 0;
+  font-size: 0.8125rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.landing-resume .landing-actions {
+  margin-top: var(--space-4);
+}
+
+/* ---------- Holland altıgeni + altı tip ----------
+   Diyagram bilgiyi TAŞIMAZ, tekrarlar: altındaki liste aynı altı tipi metinle
+   verir (renk tek başına anlam taşımaz, WCAG 1.4.1). Bu yüzden SVG
+   erişilebilirlik ağacından çıkarılmıştır. */
+
+/* Telefonda da sola hizalı: sayfadaki her şey aynı sol kenardan başlar,
+   ortalanmış tek bir öge ızgarayı bozmasın. */
+.landing-types {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.landing-hex {
+  display: block;
+  width: 176px;
+  max-width: 100%;
+  height: auto;
+}
+
+.landing-type-list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2) var(--space-3);
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  color: var(--text-secondary);
+}
+
+.landing-type-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+/* Harf, altıgendeki köşeyle listeyi eşler. Mürekkep --page: altı tip renginin
+   hepsine karşı ≥6:1 (docs/DESIGN.md ölçüm tablosu). */
+.landing-type-dot {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--page);
+}
+
+/* ---------- ölçüm cetveli ----------
+   Hero'yu gövdeden ayıran tek doku: 1px taşıyıcı çizgi + 12px aralıkla
+   5px'lik tikler, sağa doğru sönerek biter. Statik ve metinden uzak. */
+
+.landing-measure {
+  height: 6px;
+  margin-top: var(--space-7);
+  background-image:
+    linear-gradient(var(--grid), var(--grid)),
+    repeating-linear-gradient(to right, var(--baseline) 0 1px, transparent 1px 12px);
+  background-size:
+    100% 1px,
+    100% 6px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  -webkit-mask-image: linear-gradient(to right, #000 0 58%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 0 58%, transparent 100%);
+}
+
+/* ---------- bölümler ---------- */
+
+.landing-section {
+  margin-top: var(--space-6);
+}
+
+.landing-section + .landing-section {
+  margin-top: var(--space-7);
+}
+
+/* Gizlilik bölümü tek yatay çizgiyle ayrılır; panelin hemen ardından
+   ikinci bir kenar koymamak için çizgi yalnızca burada ve kapanışta var. */
+.landing-section:last-of-type {
+  padding-top: var(--space-7);
+  border-top: 1px solid var(--grid);
+}
+
+.landing-h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  font-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.375rem);
+  font-weight: 650;
+  letter-spacing: -0.014em;
+  color: var(--text-primary);
+}
+
+.landing-h2 > svg {
+  flex: none;
+  color: var(--muted);
+}
+
+/* ---------- "Ne yapar" — 4 adımlı süreç rayı ---------- */
+
+.landing-steps {
+  counter-reset: landing-step;
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+}
+
+.landing-steps li {
+  counter-increment: landing-step;
+  position: relative;
+  padding-left: 34px;
+  min-height: 24px;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+.landing-steps li + li {
+  margin-top: var(--space-4);
+}
+
+/* Sıra numarası — gerçek bir süreç adımı, dekoratif bölüm işareti değil. */
+.landing-steps li::before {
+  content: counter(landing-step);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 22px;
+  padding: 2px 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.45;
+  color: var(--muted);
+  background: var(--page);
+}
+
+/* Adımları birbirine bağlayan ray; son adımdan sonra biter. */
+.landing-steps li::after {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 25px;
+  bottom: calc(var(--space-4) * -1);
+  width: 1px;
+  background: var(--grid);
+}
+
+.landing-steps li:last-child::after {
+  display: none;
+}
+
+/* ---------- "Ne yapmaz" — sayfadaki tek panel ---------- */
+
+.landing-panel {
+  padding: var(--space-5);
+  background: var(--surface-1);
+  border: 1px solid var(--grid);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+}
+
+@media (min-width: 560px) {
+  .landing-panel {
+    padding: var(--space-6);
+  }
+}
+
+.landing-limits {
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.landing-limits li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--grid);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.landing-limits li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.landing-limits li:last-child {
+  padding-bottom: 0;
+}
+
+/* Kırmızı değil: bunlar hata değil, kapsam sınırı. Renk tek başına
+   anlam taşımaz — işaretin yanında her zaman metin vardır. */
+.landing-limit-mark {
+  flex: none;
+  margin-top: 3px;
+  color: var(--muted);
+}
+
+/* ---------- gizlilik ---------- */
+
+.landing-privacy-body {
+  margin: var(--space-4) 0 0;
+  max-width: 58ch;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  text-wrap: pretty;
+}
+
+/* ---------- kapanış ---------- */
+
+.landing-close {
+  margin-top: var(--space-7);
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-top: 1px solid var(--grid);
+}
+
+.landing-close .landing-actions {
+  margin-top: 0;
+}
+
+/* ---------- geniş ekran ---------- */
+
+/* Hero iki sütuna açılır: metin solda, model sağda. Altıgen sabit genişlikte
+   kalır ki metin sütunu ne kadar yer kalırsa alsın — görsel, metni sıkıştırmaz. */
+@media (min-width: 620px) {
+  .landing-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 208px;
+    gap: var(--space-6);
+    align-items: start;
+  }
+  .landing-types {
+    margin-top: var(--space-2);
+  }
+  .landing-hex {
+    width: 208px;
+  }
+  .landing-type-list {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+}
+
+@media (min-width: 720px) {
+  .landing-hero {
+    padding-top: var(--space-6);
+  }
+  /* Çizgisiz bölüm aralığı büyür; çizgili bölümlerde çizginin üstü ve altı
+     eşit kalır — kural her zaman iki eşit nefesin ortasında durur. */
+  .landing-section + .landing-section {
+    margin-top: var(--space-8);
+  }
+  .landing-section:last-of-type,
+  .landing-close {
+    margin-top: var(--space-7);
+    padding-top: var(--space-7);
+  }
+}

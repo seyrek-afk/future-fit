@@ -1,0 +1,185 @@
+/* Baskı / PDF — docs/PRD.md §6.
+ *
+ * Ayrı bir PDF kütüphanesi YOKTUR: window.print() + bu stil. Kartların sayfa ortasından
+ * bölünmemesi break-inside ile, renklerin kâğıtta okunması print-color-adjust ile sağlanır.
+ * Açılır künyeler (<details>) baskıda zorla açılır — kaynak izi kâğıtta da eksiksiz kalmalı.
+ */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 16mm 14mm;
+  }
+
+  :root {
+    /* Ekran tek temalıdır (koyu) ama KÂĞIT her zaman açık basılır:
+       koyu zemin mürekkep yakar ve baskıda karşıtlığı bozar. */
+    --surface-1: #ffffff;
+    --surface-2: #f6f6f4;
+    --page: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --muted: #595959;
+    --grid: #cfcec7;
+    --baseline: #9a998f;
+    --border: #cfcec7;
+    --accent: #14508f;
+    --accent-strong: #0d3a6b;
+    --accent-soft: #e3eefb;
+    --accent-fill: #14508f;
+    --accent-fill-hover: #14508f;
+    --accent-ink: #ffffff;
+    --accent-link: #14508f;
+    --seq-250: #9cc2ef;
+    --seq-400: #3d7cc4;
+    --good: #14601a;
+    --warn: #7a4600;
+    --bad: #8f1409;
+    --good-soft: #e6f1e6;
+    --warn-soft: #faefda;
+    --bad-soft: #f9e2e0;
+    --card-shadow: none;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    background: #fff;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  .topbar,
+  .survey-nav,
+  .skip-link,
+  .no-print,
+  .name-field,
+  .icon-btn,
+  .btn {
+    display: none !important;
+  }
+
+  .page {
+    max-width: none;
+    padding: 0;
+  }
+
+  .card,
+  .cluster-card {
+    box-shadow: none;
+    border: 1px solid var(--grid);
+  }
+
+  /* Kart ve blok bölünmesin */
+  .card,
+  .cluster-card,
+  .skill-card,
+  .ai-col,
+  .values-top li,
+  .job-list li,
+  .src-registry li,
+  .callout,
+  .cluster-caution,
+  .flag,
+  .holland {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Her ana bölüm yeni sayfadan başlar; içindekiler baskıda gerekmez. */
+  #bolum-beceri,
+  #bolum-kumeler,
+  #bolum-ek,
+  .sources-section {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .report-toc {
+    display: none;
+  }
+
+  .part-head {
+    margin-top: 0;
+  }
+
+  /* Kaynak izi kâğıtta da görünsün: açılır künyeler açık basılır. */
+  details,
+  .src,
+  .cluster-breakdown,
+  .mini-cluster {
+    display: block !important;
+  }
+
+  details > summary {
+    list-style: none;
+  }
+
+  .src-body,
+  .mini-body,
+  .breakdown-list,
+  .explainer,
+  .explainer-body {
+    display: block !important;
+  }
+
+  /* Açılır blokların düğme görünümü kâğıtta anlamsız; başlık gibi bassın. */
+  .explainer > summary {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .explainer > summary::before {
+    content: none;
+  }
+
+  .src-badge {
+    border-color: var(--baseline);
+  }
+
+  /* Baskıda kısa künye yeterli; tam künye zaten raporun sonunda. */
+  .src-body {
+    border: 0;
+    padding: 0 0 0 var(--space-2);
+    background: transparent;
+    max-width: none;
+  }
+  .src-body a {
+    display: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Künyedeki URL'ler kâğıtta okunabilir kalmalı */
+  .src-url {
+    color: var(--text-secondary);
+    text-decoration: underline;
+  }
+
+  .bar-track,
+  .conf-track,
+  .mini-track,
+  .breakdown-track {
+    border: 1px solid var(--baseline);
+  }
+
+  .report > * + * {
+    margin-top: 10mm;
+  }
+}

@@ -45,7 +45,11 @@ akış:      ham += 2 × seçim sayısı,   max += 2 × o tipteki seçenek sayı
 pct[t] = round(100 × ham[t] / max[t])
 ```
 
-- **Holland kodu**: en yüksek 3 tip, sırayla (örn. `IEA`).
+- **Cevaplanmayan madde ne hama ne maksa girer.** Yarım bırakılan bir bölüm puanı düşürmez,
+  yalnızca o tipin tabanını küçültür (PRD §4: "eksik cevaplar skorlamada maksimum tabanından düşülür").
+  `max[t] = 0` ise `pct[t] = 0` kabul edilir.
+- **Holland kodu**: en yüksek 3 tip, sırayla (örn. `IEA`). Eşitlikte sabit `R-I-A-S-E-C` sırası
+  belirleyicidir; sıralama her zaman deterministiktir.
 - **Farklılaşma (spread)**: `max(pct) − min(pct)`. `spread < 15` ise profil "düz" sayılır ve rapora
   *keşif modu* uyarısı düşer: sonuçlar hüküm değil, keşfe devam işareti olarak okunmalıdır.
 
@@ -63,11 +67,15 @@ total = 0.45 × ilgi  +  0.20 × özyeterlik  +  0.20 × merak  +  0.15 × değe
 | Bileşen | Hesap |
 |---|---|
 | **ilgi** | Kümenin `riasec` ağırlıklarıyla kullanıcının `pct` değerlerinin ağırlıklı ortalaması: `Σ(wₖ × pctₖ/100) / Σwₖ` |
-| **özyeterlik** | Kümenin `conf` maddelerinin ortalaması, `(ort − 1) / 4` ile 0-1'e ölçeklenir |
+| **özyeterlik** | Kümenin `conf` maddelerinin ortalaması, `(ort − 1) / 4` ile 0-1'e ölçeklenir (kümenin hiçbir maddesi cevaplanmadıysa 0.5) |
 | **merak** | `0.6 × teknoloji örtüşmesi + 0.4 × sorun örtüşmesi`; her biri `eşleşen / kümedeki toplam` (küme listesi boşsa 0.5) |
 | **değer** | Kullanıcının 1./2./3. değerleri kümenin `values` listesindeyse sırasıyla `1.0 / 0.66 / 0.33` puan; toplam `/1.99` ile normalize |
 
 v1'de merak bileşeni ikiliydi (bir eşleşme = tam puan) ve değerler skora hiç girmiyordu. v2'de her ikisi de düzeltildi.
+
+**Bilgi yokluğu = nötr 0.5.** Bir bileşen hiç veri bulamadığında (kümenin listesi boş ya da ilgili
+maddelerin hiçbiri cevaplanmamış) 0 değil 0.5 kullanılır: cevaplamamak "hayır" demek değildir.
+Eşit skorlarda sıralama `data/clusters.json` içindeki küme sırasını korur.
 
 **Skorlar sıralama içindir, olasılık değildir.** Arayüz "%83 uyum"u başarı olasılığı gibi
 sunmamalı; "bu kümenin profilinle örtüşme derecesi" demelidir.

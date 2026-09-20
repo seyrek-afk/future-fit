@@ -1,0 +1,221 @@
+/* Future-Fit — tema token'ları ve temel stiller.
+ *
+ * TEK TEMA: koyu. Açık tema v2'de kaldırılmıştır; `prefers-color-scheme` dalı ve
+ * `[data-theme]` anahtarı yoktur. Baskıda açık palete geçiş src/styles/print.css
+ * içinde ayrıca tanımlıdır (kâğıtta koyu zemin mürekkep yakar).
+ *
+ * Token ADLARI v1 envanterinden korunmuştur (docs/PRD.md §7) — 40'a yakın dosya
+ * bunlara bağlıdır. Ad silinmez/yeniden adlandırılmaz; yalnızca değer değişir.
+ *
+ * Karşıtlık: tüm metin/zemin çiftleri WCAG AA (≥4.5:1) hesaplanarak seçilmiştir,
+ * göz kararı değil. Gerekçe ve ölçüm tablosu: docs/DESIGN.md.
+ *
+ * Harici font yüklenmez; yalnızca sistem yazı tipleri (ağ isteği yok kuralı,
+ * CLAUDE.md §1). Bu dosyaya @import url(), @font-face src:url(http…) girmez.
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* ---- Yüzeyler ----------------------------------------------------------
+     Dört basamaklı mürekkep merdiveni. Aralar bilerek dar: yükseklik hissi
+     gölge ve saç teli kenarla kurulur, yüzeyleri açarak değil. */
+  --page: #0a0c0f; /* sayfa zemini — en koyu */
+  --surface-1: #14181e; /* kart */
+  --surface-2: #1c2128; /* kart içi girinti (seçenek, input) */
+  --surface-3: #242a33; /* YENİ: kart içinde ikinci kademe girinti */
+
+  /* ---- Metin -------------------------------------------------------------
+     Saf beyaz kullanılmaz: #ffffff koyu zeminde parlama (halation) yapar ve
+     uzun metinde okuma hızını düşürür. #f4f6f9 ile 18:1 zaten fazlasıyla yeter. */
+  --text-primary: #f4f6f9; /* page'e karşı 18.09:1 */
+  --text-secondary: #c3cad5; /* en açık yüzeye (surface-3) karşı 8.75:1 */
+  /* --muted 0.7rem'lik rozetlerde de kullanılıyor; eşik büyük metne göre
+     gevşetilmez. En açık zemine (surface-3) karşı 5.27:1. */
+  --muted: #949daa;
+
+  /* ---- Çizgiler ----------------------------------------------------------
+     --grid saç teli (kart kenarı, ayraç, çubuk izi).
+     --baseline taşıyıcı kenar (kontrol kenarlığı, eksen ekseni) — surface-1/2'ye
+     karşı ≥3:1, WCAG 1.4.11 metin-dışı eşiğini geçer. */
+  --grid: #2e343d;
+  --baseline: #626d7b;
+  --border: rgba(255, 255, 255, 0.09);
+
+  /* ---- Vurgu -------------------------------------------------------------
+     --accent dekoratif/yapısal yüzeyler içindir (çubuk, odak halkası, çerçeve).
+     Üzerinde METİN taşıyan her vurgu yüzeyi --accent-fill + --accent-ink çiftini,
+     bağlantı metni --accent-link kullanır. Bu ayrım AA'yı garanti eder. */
+  --accent: #5296ec; /* page'e karşı 6.46:1 — odak halkası için fazlasıyla yeterli */
+  --accent-strong: #93bef7;
+  --accent-soft: #16273d; /* üzerine text-primary geldiğinde 13.94:1 */
+  --accent-fill: #5296ec;
+  --accent-fill-hover: #79b0f2;
+  --accent-ink: #061120; /* accent-fill üzerinde 6.25:1 */
+  --accent-link: #8db9f4; /* page'e karşı 9.68:1 */
+
+  /* ---- Sıralı (sequential) ölçek — çubuklar ve dolgular ------------------
+     Koyu temada yön tersine döner: düşük değer sönük, yüksek değer parlak.
+     Dört basamağın hepsi çubuk izine (--grid) karşı ≥3:1. */
+  --seq-250: #4e82be;
+  --seq-400: #4b8fe6;
+  --seq-500: #67a5ee;
+  --seq-650: #9cc4f8;
+
+  /* ---- Durum renkleri ----------------------------------------------------
+     Her biri hem yüzeylere hem kendi -soft zeminine karşı ≥4.5:1
+     (rapor rozetleri `color: --warn; background: --warn-soft` biçiminde kullanıyor). */
+  --good: #5cc98a;
+  --warn: #e2ab45;
+  --bad: #f5877e;
+  --good-soft: #102a1c;
+  --warn-soft: #2d2211;
+  --bad-soft: #301715;
+
+  /* ---- RIASEC tip renkleri (data/riasec.json meta.color bunlara işaret eder)
+     Yalnızca çubuk dolgusu = metin-dışı; hepsi --grid izine karşı ≥3:1.
+     Ton sırası v1 ile aynı tutuldu ki rapor okuru renk hafızasını kaybetmesin. */
+  --s1: #5296ec; /* R — Yapıcı */
+  --s2: #46b862; /* I — Araştırmacı */
+  --s3: #ee93b4; /* A — Yaratıcı */
+  --s4: #e2ab45; /* S — Sosyal */
+  --s5: #35cb99; /* E — Girişimci */
+  --s6: #f5854f; /* C — Düzenleyici */
+
+  /* ---- Gölge, yarıçap, boşluk -------------------------------------------
+     Koyu temada gölge "ışık" değil "derinlik" taşır: daha koyu ve daha geniş. */
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 10px 28px rgba(0, 0, 0, 0.32);
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 72px; /* YENİ: yalnızca bölüm arası büyük nefes (landing) */
+
+  /* Dokunma hedefi alt sınırı — telefonda tek elle kullanım için */
+  --tap: 44px;
+
+  /* Etkileşim geri bildirimi — YALNIZCA durum geçişi (basma, hover, odak).
+     Kendiliğinden oynayan, kayan, parlayan hiçbir şey yok. Üç basamak:
+     120ms anlık geri bildirim, 140ms durum, 180ms yön/mesafe taşıyan geçiş.
+     prefers-reduced-motion altında üçü de sıfırlanır (bu dosyanın sonu). */
+  --dur-1: 120ms;
+  --dur-2: 140ms;
+  --dur-3: 180ms;
+  --ease-1: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  --maxw: 760px;
+}
+
+/* ---------- Temel ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: var(--page);
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Koyu zeminde açık metin optik olarak şişer; ince harf aralığı bunu geri alır. */
+  letter-spacing: 0.0015em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  margin: 0 0 var(--space-3);
+  font-weight: 650;
+  text-wrap: balance;
+  letter-spacing: -0.011em;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2rem);
+}
+h2 {
+  font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.5rem);
+}
+h3 {
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0 0 var(--space-3);
+}
+
+a {
+  color: var(--accent-link);
+  text-underline-offset: 2px;
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Seçim vurgusu koyu zeminde okunur kalsın. */
+::selection {
+  background: var(--accent-soft);
+  color: var(--text-primary);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--surface-1);
+  color: var(--text-primary);
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-sm);
+}
+.skip-link:focus {
+  left: var(--space-3);
+  top: var(--space-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
