@@ -18,5 +18,13 @@
       "id": "O4",
       "q": "Hiç denemediğin ama içten içe merak ettiğin bir iş ya da alan var mı? Neden denemedin?"
     }
-  ]
+  ],
+  "_attribution": {
+    "_comment": "DOSYA KÜNYESİ — bu bölümün dayandığı çerçeve. Raporun altındaki metodoloji satırında belirtilmelidir.",
+    "framework": [
+      "Editoryal; akış (flow) ve anlatı temelli kariyer danışmanlığı pratiğinden uyarlanmıştır"
+    ],
+    "note": "Bu maddeler ölçülmüş bir psikometrik testin maddeleri DEĞİLDİR; çerçeveden uyarlanmış keşif sorularıdır.",
+    "registry": "data/sources.json"
+  }
 }

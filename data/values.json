@@ -38,5 +38,13 @@
       "desc": "Beni destekleyen bir yönetim ve sıcak bir ekiple çalışmak",
       "en": "Support"
     }
-  ]
+  ],
+  "_attribution": {
+    "_comment": "DOSYA KÜNYESİ — bu bölümün dayandığı çerçeve. Raporun altındaki metodoloji satırında belirtilmelidir.",
+    "framework": [
+      "O*NET Work Values (ABD Çalışma Bakanlığı) çerçevesinden uyarlanmıştır"
+    ],
+    "note": "Bu maddeler ölçülmüş bir psikometrik testin maddeleri DEĞİLDİR; çerçeveden uyarlanmış keşif sorularıdır.",
+    "registry": "data/sources.json"
+  }
 }

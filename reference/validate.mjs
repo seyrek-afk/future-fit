@@ -30,6 +30,25 @@ for (const t of riasec) {
   const has = clusters.some(c => (c.riasec[t] || 0) >= 2.5);
   if (!has) errs.push(`KAPSAMA: "${t}" tipi hiçbir kümede baskın değil`);
 }
+
+// --- v2.1: kaynak izi (provenance) denetimi ---
+const DATA_FILES = ["clusters","skills2030","riasec","workstyle","values","confidence","interests","open-questions"];
+for (const f of DATA_FILES) {
+  const o = rd(f);
+  if (!o._attribution) errs.push(`${f}.json: dosya sonunda _attribution künyesi yok`);
+  const keys = Object.keys(o);
+  if (keys[keys.length - 1] !== "_attribution") errs.push(`${f}.json: _attribution en altta değil (şu an: ${keys[keys.length - 1]})`);
+  (o._attribution?.usedSources || []).forEach(id => sources.has(id) || errs.push(`${f}.json künyesi: bilinmeyen kaynak "${id}"`));
+}
+for (const c of clusters) {
+  if (!(c.noteSources || []).length) errs.push(`${c.id}: note alanı için noteSources yok`);
+  (c.noteSources || []).forEach(id => sources.has(id) || errs.push(`${c.id}.noteSources: bilinmeyen kaynak "${id}"`));
+}
+// kayıtta olup hiç kullanılmayan kaynak kalmasın
+const used = new Set(clusters.flatMap(c => [...(c.jobs||[]).map(j=>j.source), c.aiPosture?.source, ...(c.noteSources||[])]).filter(Boolean));
+[...sources].forEach(id => used.has(id) || rd("skills2030")._attribution.usedSources.includes(id) || errs.push(`sources.json: "${id}" hiçbir veri alanında kullanılmıyor`));
+console.log(`Kaynak izi: ${used.size} kaynak aktif olarak kullanılıyor.`);
+
 console.log(`${clusters.length} küme, ${sources.size} kaynak, ${skills.size} beceri denetlendi.`);
 if (errs.length) { console.error("HATALAR:\n" + errs.join("\n")); process.exit(1); }
 console.log("✓ Tüm id referansları ve kapsama kuralları geçerli.");

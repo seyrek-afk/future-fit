@@ -9,55 +9,349 @@
     "disruption": "Küresel işlerin %22'si bu dönemde yapısal olarak dönüşüyor"
   },
   "rising": [
-    { "id": "ai_bigdata", "rank": 1, "tr": "Yapay zekâ ve büyük veri", "en": "AI and big data", "desc": "Veriyle düşünmek, YZ araçlarını amacına uygun ve eleştirel kullanmak, çıktıyı doğrulayabilmek.", "riasecAffinity": { "I": 1.0, "C": 0.6, "R": 0.3 }, "howToBuild": "Bir veri setiyle küçük bir analiz projesi yap; bir YZ modelinin hatalı çıktısını fark edip düzelttiğin bir örnek biriktir." },
-    { "id": "networks_cyber", "rank": 2, "tr": "Ağlar ve siber güvenlik", "en": "Networks and cybersecurity", "desc": "Sistemlerin nasıl bağlandığını ve nerede kırıldığını anlamak; dijital riski yönetmek.", "riasecAffinity": { "I": 0.8, "C": 0.7, "R": 0.5 }, "howToBuild": "CTF (capture the flag) yarışmalarına gir; kendi ev ağını haritala ve güvenliğini sıkılaştır." },
-    { "id": "tech_literacy", "rank": 3, "tr": "Teknoloji okuryazarlığı", "en": "Technological literacy", "desc": "Yeni bir aracı hızla öğrenip işine katabilmek; teknolojinin ne yapıp ne yapamadığını bilmek.", "riasecAffinity": { "I": 0.7, "R": 0.6, "C": 0.5, "E": 0.4 }, "howToBuild": "Her dönem bir yeni araç seç, onunla gerçek bir işi bitir ve nasıl çalıştığını başkasına anlat." },
-    { "id": "creative_thinking", "rank": 4, "tr": "Yaratıcı düşünme", "en": "Creative thinking", "desc": "Daha önce denenmemiş çözümler üretmek; problemi yeniden çerçevelemek.", "riasecAffinity": { "A": 1.0, "I": 0.5, "E": 0.5 }, "howToBuild": "Bir sorunu üç farklı disiplinin gözünden çözmeyi dene; fikirleri ürüne dönüştürdüğün küçük denemeler yap." },
-    { "id": "resilience", "rank": 5, "tr": "Dayanıklılık, esneklik ve çeviklik", "en": "Resilience, flexibility and agility", "desc": "Plan bozulduğunda toparlanmak; belirsizlikte ilerlemeye devam etmek.", "riasecAffinity": { "E": 0.7, "S": 0.5, "R": 0.4, "A": 0.4 }, "howToBuild": "Uzun soluklu, başarısızlık ihtimali olan bir işe gir (yarışma, girişim, sahne) ve bitir." },
-    { "id": "curiosity", "rank": 6, "tr": "Merak ve yaşam boyu öğrenme", "en": "Curiosity and lifelong learning", "desc": "Kimse istemeden öğrenmek; öğrenme hızını bir yetkinlik olarak kullanmak.", "riasecAffinity": { "I": 1.0, "A": 0.5, "S": 0.3 }, "howToBuild": "Kendi başına öğrendiğin şeylerin bir kaydını tut; öğrendiğini paylaş (yazı, video, sunum)." },
-    { "id": "leadership", "rank": 7, "tr": "Liderlik ve sosyal etki", "en": "Leadership and social influence", "desc": "İnsanları ortak bir hedefe taşımak; yetkiye değil ikna ve güvene dayanarak.", "riasecAffinity": { "E": 1.0, "S": 0.7 }, "howToBuild": "Bir kulüp, takım ya da proje ekibini gerçekten yönet — sonuç ve sorumluluk üstlen." },
-    { "id": "talent_mgmt", "rank": 8, "tr": "Yetenek yönetimi", "en": "Talent management", "desc": "Başkalarının gelişimini görmek, yetiştirmek ve doğru işe yerleştirmek.", "riasecAffinity": { "S": 0.9, "E": 0.8, "C": 0.3 }, "howToBuild": "Yeni gelenlere mentorluk yap; bir ekipte kimin neyi iyi yaptığını görüp görev dağıt." },
-    { "id": "analytical", "rank": 9, "tr": "Analitik düşünme", "en": "Analytical thinking", "desc": "Karmaşığı parçalara ayırmak, kanıtla karar vermek. 2025'in en çok aranan çekirdek becerisi.", "riasecAffinity": { "I": 1.0, "C": 0.7 }, "howToBuild": "Bir iddiayı veriyle çürütmeyi ya da doğrulamayı dene; varsayımlarını yazılı hale getir." },
-    { "id": "environmental", "rank": 10, "tr": "Çevresel yönetişim", "en": "Environmental stewardship", "desc": "Kararların iklim ve kaynak sonuçlarını hesaba katmak. 2030 listesine yeni giren beceri.", "riasecAffinity": { "I": 0.6, "R": 0.5, "S": 0.5, "C": 0.4 }, "howToBuild": "Okulunun ya da evinin karbon/enerji ayak izini ölç ve azaltacak bir müdahale tasarla." }
+    {
+      "id": "ai_bigdata",
+      "rank": 1,
+      "tr": "Yapay zekâ ve büyük veri",
+      "en": "AI and big data",
+      "desc": "Veriyle düşünmek, YZ araçlarını amacına uygun ve eleştirel kullanmak, çıktıyı doğrulayabilmek.",
+      "riasecAffinity": {
+        "I": 1,
+        "C": 0.6,
+        "R": 0.3
+      },
+      "howToBuild": "Bir veri setiyle küçük bir analiz projesi yap; bir YZ modelinin hatalı çıktısını fark edip düzelttiğin bir örnek biriktir.",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "networks_cyber",
+      "rank": 2,
+      "tr": "Ağlar ve siber güvenlik",
+      "en": "Networks and cybersecurity",
+      "desc": "Sistemlerin nasıl bağlandığını ve nerede kırıldığını anlamak; dijital riski yönetmek.",
+      "riasecAffinity": {
+        "I": 0.8,
+        "C": 0.7,
+        "R": 0.5
+      },
+      "howToBuild": "CTF (capture the flag) yarışmalarına gir; kendi ev ağını haritala ve güvenliğini sıkılaştır.",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "tech_literacy",
+      "rank": 3,
+      "tr": "Teknoloji okuryazarlığı",
+      "en": "Technological literacy",
+      "desc": "Yeni bir aracı hızla öğrenip işine katabilmek; teknolojinin ne yapıp ne yapamadığını bilmek.",
+      "riasecAffinity": {
+        "I": 0.7,
+        "R": 0.6,
+        "C": 0.5,
+        "E": 0.4
+      },
+      "howToBuild": "Her dönem bir yeni araç seç, onunla gerçek bir işi bitir ve nasıl çalıştığını başkasına anlat.",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "creative_thinking",
+      "rank": 4,
+      "tr": "Yaratıcı düşünme",
+      "en": "Creative thinking",
+      "desc": "Daha önce denenmemiş çözümler üretmek; problemi yeniden çerçevelemek.",
+      "riasecAffinity": {
+        "A": 1,
+        "I": 0.5,
+        "E": 0.5
+      },
+      "howToBuild": "Bir sorunu üç farklı disiplinin gözünden çözmeyi dene; fikirleri ürüne dönüştürdüğün küçük denemeler yap.",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "resilience",
+      "rank": 5,
+      "tr": "Dayanıklılık, esneklik ve çeviklik",
+      "en": "Resilience, flexibility and agility",
+      "desc": "Plan bozulduğunda toparlanmak; belirsizlikte ilerlemeye devam etmek.",
+      "riasecAffinity": {
+        "E": 0.7,
+        "S": 0.5,
+        "R": 0.4,
+        "A": 0.4
+      },
+      "howToBuild": "Uzun soluklu, başarısızlık ihtimali olan bir işe gir (yarışma, girişim, sahne) ve bitir.",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "curiosity",
+      "rank": 6,
+      "tr": "Merak ve yaşam boyu öğrenme",
+      "en": "Curiosity and lifelong learning",
+      "desc": "Kimse istemeden öğrenmek; öğrenme hızını bir yetkinlik olarak kullanmak.",
+      "riasecAffinity": {
+        "I": 1,
+        "A": 0.5,
+        "S": 0.3
+      },
+      "howToBuild": "Kendi başına öğrendiğin şeylerin bir kaydını tut; öğrendiğini paylaş (yazı, video, sunum).",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "leadership",
+      "rank": 7,
+      "tr": "Liderlik ve sosyal etki",
+      "en": "Leadership and social influence",
+      "desc": "İnsanları ortak bir hedefe taşımak; yetkiye değil ikna ve güvene dayanarak.",
+      "riasecAffinity": {
+        "E": 1,
+        "S": 0.7
+      },
+      "howToBuild": "Bir kulüp, takım ya da proje ekibini gerçekten yönet — sonuç ve sorumluluk üstlen.",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "talent_mgmt",
+      "rank": 8,
+      "tr": "Yetenek yönetimi",
+      "en": "Talent management",
+      "desc": "Başkalarının gelişimini görmek, yetiştirmek ve doğru işe yerleştirmek.",
+      "riasecAffinity": {
+        "S": 0.9,
+        "E": 0.8,
+        "C": 0.3
+      },
+      "howToBuild": "Yeni gelenlere mentorluk yap; bir ekipte kimin neyi iyi yaptığını görüp görev dağıt.",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "analytical",
+      "rank": 9,
+      "tr": "Analitik düşünme",
+      "en": "Analytical thinking",
+      "desc": "Karmaşığı parçalara ayırmak, kanıtla karar vermek. 2025'in en çok aranan çekirdek becerisi.",
+      "riasecAffinity": {
+        "I": 1,
+        "C": 0.7
+      },
+      "howToBuild": "Bir iddiayı veriyle çürütmeyi ya da doğrulamayı dene; varsayımlarını yazılı hale getir.",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "environmental",
+      "rank": 10,
+      "tr": "Çevresel yönetişim",
+      "en": "Environmental stewardship",
+      "desc": "Kararların iklim ve kaynak sonuçlarını hesaba katmak. 2030 listesine yeni giren beceri.",
+      "riasecAffinity": {
+        "I": 0.6,
+        "R": 0.5,
+        "S": 0.5,
+        "C": 0.4
+      },
+      "howToBuild": "Okulunun ya da evinin karbon/enerji ayak izini ölç ve azaltacak bir müdahale tasarla.",
+      "source": "wef_foj_2025_skills"
+    }
   ],
   "core2025": [
-    { "id": "analytical", "rank": 1, "tr": "Analitik düşünme" },
-    { "id": "resilience", "rank": 2, "tr": "Dayanıklılık, esneklik ve çeviklik" },
-    { "id": "leadership", "rank": 3, "tr": "Liderlik ve sosyal etki" },
-    { "id": "creative_thinking", "rank": 4, "tr": "Yaratıcı düşünme" },
-    { "id": "motivation", "rank": 5, "tr": "Motivasyon ve öz farkındalık" },
-    { "id": "tech_literacy", "rank": 6, "tr": "Teknoloji okuryazarlığı" },
-    { "id": "empathy", "rank": 7, "tr": "Empati ve aktif dinleme" },
-    { "id": "curiosity", "rank": 8, "tr": "Merak ve yaşam boyu öğrenme" },
-    { "id": "talent_mgmt", "rank": 9, "tr": "Yetenek yönetimi" },
-    { "id": "service", "rank": 10, "tr": "Hizmet ve müşteri odaklılık" }
+    {
+      "id": "analytical",
+      "rank": 1,
+      "tr": "Analitik düşünme",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "resilience",
+      "rank": 2,
+      "tr": "Dayanıklılık, esneklik ve çeviklik",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "leadership",
+      "rank": 3,
+      "tr": "Liderlik ve sosyal etki",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "creative_thinking",
+      "rank": 4,
+      "tr": "Yaratıcı düşünme",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "motivation",
+      "rank": 5,
+      "tr": "Motivasyon ve öz farkındalık",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "tech_literacy",
+      "rank": 6,
+      "tr": "Teknoloji okuryazarlığı",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "empathy",
+      "rank": 7,
+      "tr": "Empati ve aktif dinleme",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "curiosity",
+      "rank": 8,
+      "tr": "Merak ve yaşam boyu öğrenme",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "talent_mgmt",
+      "rank": 9,
+      "tr": "Yetenek yönetimi",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "service",
+      "rank": 10,
+      "tr": "Hizmet ve müşteri odaklılık",
+      "source": "wef_foj_2025_skills"
+    }
   ],
   "extraCore": [
-    { "id": "motivation", "tr": "Motivasyon ve öz farkındalık", "en": "Motivation and self-awareness", "desc": "Kendi ilgisini, sınırını ve enerjisini tanıyıp yönetmek. Bu testin de amacı bu beceriyi beslemek.", "riasecAffinity": { "S": 0.5, "A": 0.5, "I": 0.4, "E": 0.4 } },
-    { "id": "empathy", "tr": "Empati ve aktif dinleme", "en": "Empathy and active listening", "desc": "Karşındakinin gerçekte ne söylediğini ve neye ihtiyacı olduğunu anlamak.", "riasecAffinity": { "S": 1.0, "A": 0.4, "E": 0.4 } },
-    { "id": "service", "tr": "Hizmet ve müşteri odaklılık", "en": "Service orientation", "desc": "İhtiyacı fark edip karşılamayı işin merkezine koymak.", "riasecAffinity": { "S": 0.9, "E": 0.6, "C": 0.4 } }
+    {
+      "id": "motivation",
+      "tr": "Motivasyon ve öz farkındalık",
+      "en": "Motivation and self-awareness",
+      "desc": "Kendi ilgisini, sınırını ve enerjisini tanıyıp yönetmek. Bu testin de amacı bu beceriyi beslemek.",
+      "riasecAffinity": {
+        "S": 0.5,
+        "A": 0.5,
+        "I": 0.4,
+        "E": 0.4
+      },
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "empathy",
+      "tr": "Empati ve aktif dinleme",
+      "en": "Empathy and active listening",
+      "desc": "Karşındakinin gerçekte ne söylediğini ve neye ihtiyacı olduğunu anlamak.",
+      "riasecAffinity": {
+        "S": 1,
+        "A": 0.4,
+        "E": 0.4
+      },
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "id": "service",
+      "tr": "Hizmet ve müşteri odaklılık",
+      "en": "Service orientation",
+      "desc": "İhtiyacı fark edip karşılamayı işin merkezine koymak.",
+      "riasecAffinity": {
+        "S": 0.9,
+        "E": 0.6,
+        "C": 0.4
+      },
+      "source": "wef_foj_2025_skills"
+    }
   ],
   "declining": [
-    { "tr": "El becerisi, dayanıklılık ve hassasiyet", "en": "Manual dexterity, endurance and precision", "note": "En belirgin düşüş: katılımcıların %24'ü öneminin azalacağını söylüyor. Yine de fiziksel dünyada teşhis ve muhakeme gerektiren teknik işler bu düşüşün dışında — bkz. 'Uygulamalı Teknik Meslekler' kümesi." },
-    { "tr": "Duyusal işleme yetenekleri", "en": "Sensory-processing abilities", "note": "Sensör ve görüntü işleme teknolojileri bu yetkinliğin yerini alıyor." },
-    { "tr": "Güvenilirlik ve ayrıntıya dikkat", "en": "Dependability and attention to detail", "note": "Rutin doğruluk denetimi otomatikleşiyor; ayrıntı hâlâ gerekli ama tek başına ayırt edici değil." },
-    { "tr": "Kalite kontrol", "en": "Quality control", "note": "Otomatik test ve izleme sistemleri devraldı." },
-    { "tr": "Okuma, yazma ve matematik (temel düzey)", "en": "Reading, writing and mathematics", "note": "Küçük bir net düşüş. Bu, 'matematik gereksiz' demek DEĞİL: ileri matematik hâlâ birçok kümenin giriş bileti; düşen şey temel işlem/yazım becerisinin ayırt ediciliği." },
-    { "tr": "Küresel vatandaşlık", "en": "Global citizenship", "note": "İşverenlerin önceliklerinde geriledi." }
+    {
+      "tr": "El becerisi, dayanıklılık ve hassasiyet",
+      "en": "Manual dexterity, endurance and precision",
+      "note": "En belirgin düşüş: katılımcıların %24'ü öneminin azalacağını söylüyor. Yine de fiziksel dünyada teşhis ve muhakeme gerektiren teknik işler bu düşüşün dışında — bkz. 'Uygulamalı Teknik Meslekler' kümesi.",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "tr": "Duyusal işleme yetenekleri",
+      "en": "Sensory-processing abilities",
+      "note": "Sensör ve görüntü işleme teknolojileri bu yetkinliğin yerini alıyor.",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "tr": "Güvenilirlik ve ayrıntıya dikkat",
+      "en": "Dependability and attention to detail",
+      "note": "Rutin doğruluk denetimi otomatikleşiyor; ayrıntı hâlâ gerekli ama tek başına ayırt edici değil.",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "tr": "Kalite kontrol",
+      "en": "Quality control",
+      "note": "Otomatik test ve izleme sistemleri devraldı.",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "tr": "Okuma, yazma ve matematik (temel düzey)",
+      "en": "Reading, writing and mathematics",
+      "note": "Küçük bir net düşüş. Bu, 'matematik gereksiz' demek DEĞİL: ileri matematik hâlâ birçok kümenin giriş bileti; düşen şey temel işlem/yazım becerisinin ayırt ediciliği.",
+      "source": "wef_foj_2025_skills"
+    },
+    {
+      "tr": "Küresel vatandaşlık",
+      "en": "Global citizenship",
+      "note": "İşverenlerin önceliklerinde geriledi.",
+      "source": "wef_foj_2025_skills"
+    }
   ],
   "fastestGrowingJobs": {
     "_source": "wef_foj_2025",
     "_note": "Yüzde olarak en hızlı büyüyen roller (2025-2030), sıralı.",
-    "list": ["Büyük veri uzmanları", "FinTech mühendisleri", "Yapay zekâ ve makine öğrenmesi uzmanları", "Yazılım ve uygulama geliştiricileri", "Güvenlik yönetimi uzmanları", "Veri ambarı uzmanları", "Otonom ve elektrikli araç uzmanları", "UI/UX tasarımcıları", "Hafif ticari araç sürücüleri", "Nesnelerin interneti uzmanları"]
+    "list": [
+      "Büyük veri uzmanları",
+      "FinTech mühendisleri",
+      "Yapay zekâ ve makine öğrenmesi uzmanları",
+      "Yazılım ve uygulama geliştiricileri",
+      "Güvenlik yönetimi uzmanları",
+      "Veri ambarı uzmanları",
+      "Otonom ve elektrikli araç uzmanları",
+      "UI/UX tasarımcıları",
+      "Hafif ticari araç sürücüleri",
+      "Nesnelerin interneti uzmanları"
+    ]
   },
   "largestVolumeGrowth": {
     "_source": "wef_foj_2025",
     "_note": "Mutlak sayı olarak en çok kişi ekleyen roller — 'en hızlı büyüyen' ile aynı şey değildir.",
-    "list": ["Tarım işçileri", "Kurye ve dağıtım sürücüleri", "Yazılım geliştiricileri", "İnşaat işçileri", "Satış danışmanları", "Gıda işleme çalışanları", "Hemşireler", "Sosyal hizmet ve danışmanlık uzmanları", "Ortaöğretim öğretmenleri"]
+    "list": [
+      "Tarım işçileri",
+      "Kurye ve dağıtım sürücüleri",
+      "Yazılım geliştiricileri",
+      "İnşaat işçileri",
+      "Satış danışmanları",
+      "Gıda işleme çalışanları",
+      "Hemşireler",
+      "Sosyal hizmet ve danışmanlık uzmanları",
+      "Ortaöğretim öğretmenleri"
+    ]
   },
   "fastestDecliningJobs": {
     "_source": "wef_foj_2025",
     "_note": "Yüzde olarak en hızlı daralan roller (2025-2030), sıralı.",
-    "list": ["Posta hizmetleri görevlileri", "Banka veznedarları ve gişe görevlileri", "Veri giriş görevlileri", "Kasiyer ve bilet satış görevlileri", "İdari asistan ve yönetici sekreterleri", "Matbaa ve baskı çalışanları", "Muhasebe ve defter tutma görevlileri", "Depo ve stok görevlileri", "Yolcu taşıma görevlileri", "Kapı kapı / stand satış görevlileri"]
+    "list": [
+      "Posta hizmetleri görevlileri",
+      "Banka veznedarları ve gişe görevlileri",
+      "Veri giriş görevlileri",
+      "Kasiyer ve bilet satış görevlileri",
+      "İdari asistan ve yönetici sekreterleri",
+      "Matbaa ve baskı çalışanları",
+      "Muhasebe ve defter tutma görevlileri",
+      "Depo ve stok görevlileri",
+      "Yolcu taşıma görevlileri",
+      "Kapı kapı / stand satış görevlileri"
+    ]
+  },
+  "_provenance": {
+    "sourced": {
+      "headline / rising / core2025 / extraCore / declining / fastestGrowingJobs / largestVolumeGrowth / fastestDecliningJobs": "WEF Future of Jobs 2025"
+    },
+    "editorial": {
+      "riasecAffinity": "Becerinin RIASEC tipleriyle eğilim eşlemesi — editoryaldir, WEF verisi değildir.",
+      "howToBuild": "Editoryal öneri."
+    }
+  },
+  "_attribution": {
+    "_comment": "DOSYA KÜNYESİ — raporun altında gösterilecek kaynak.",
+    "usedSources": [
+      "wef_foj_2025",
+      "wef_foj_2025_skills"
+    ],
+    "registry": "data/sources.json"
   }
 }

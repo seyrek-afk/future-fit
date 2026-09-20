@@ -118,5 +118,13 @@
       "a": "Yüksek tempolu, rekabetçi, iddialı bir ortam",
       "b": "Sakin, dengeli ve sürdürülebilir bir tempo"
     }
-  ]
+  ],
+  "_attribution": {
+    "_comment": "DOSYA KÜNYESİ — bu bölümün dayandığı çerçeve. Raporun altındaki metodoloji satırında belirtilmelidir.",
+    "framework": [
+      "Prediger, D. J. — insan↔nesne ve veri↔fikir çalışma tarzı eksenleri"
+    ],
+    "note": "Bu maddeler ölçülmüş bir psikometrik testin maddeleri DEĞİLDİR; çerçeveden uyarlanmış keşif sorularıdır.",
+    "registry": "data/sources.json"
+  }
 }

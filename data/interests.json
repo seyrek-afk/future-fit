@@ -88,5 +88,13 @@
       "id": "agritech",
       "text": "Tarım ve gıda teknolojileri"
     }
-  ]
+  ],
+  "_attribution": {
+    "_comment": "DOSYA KÜNYESİ — bu bölümün dayandığı çerçeve. Raporun altındaki metodoloji satırında belirtilmelidir.",
+    "framework": [
+      "Editoryal madde havuzu; WEF 2025 teknoloji ve küresel sorun başlıklarıyla hizalanmıştır"
+    ],
+    "note": "Bu maddeler ölçülmüş bir psikometrik testin maddeleri DEĞİLDİR; çerçeveden uyarlanmış keşif sorularıdır.",
+    "registry": "data/sources.json"
+  }
 }

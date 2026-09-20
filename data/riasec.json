@@ -508,5 +508,14 @@
         }
       ]
     }
-  ]
+  ],
+  "_attribution": {
+    "_comment": "DOSYA KÜNYESİ — bu bölümün dayandığı çerçeve. Raporun altındaki metodoloji satırında belirtilmelidir.",
+    "framework": [
+      "Holland, J. L. — RIASEC ilgi tipolojisi",
+      "Maddeler v1 envanterinden (2026-07) türetilmiştir; normlanmamış, özgün madde havuzudur."
+    ],
+    "note": "Bu maddeler ölçülmüş bir psikometrik testin maddeleri DEĞİLDİR; çerçeveden uyarlanmış keşif sorularıdır.",
+    "registry": "data/sources.json"
+  }
 }

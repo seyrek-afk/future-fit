@@ -57,5 +57,13 @@
       "id": "c_detail",
       "text": "Ayrıntıya dikkat ve titizlik gerektiren işler"
     }
-  ]
+  ],
+  "_attribution": {
+    "_comment": "DOSYA KÜNYESİ — bu bölümün dayandığı çerçeve. Raporun altındaki metodoloji satırında belirtilmelidir.",
+    "framework": [
+      "Bandura'nın öz-yeterlik kavramından uyarlanmış özbildirim ölçeği — tanı aracı değildir"
+    ],
+    "note": "Bu maddeler ölçülmüş bir psikometrik testin maddeleri DEĞİLDİR; çerçeveden uyarlanmış keşif sorularıdır.",
+    "registry": "data/sources.json"
+  }
 }

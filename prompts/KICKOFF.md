@@ -27,8 +27,11 @@ Sonra şu sırayla ilerle ve her adımın sonunda dur, bana göster:
 3. Anket akışı: docs/PRD.md §4'teki 8 bölüm, tek useReducer + Context, localStorage'a
    otomatik kayıt ve kaldığı yerden devam. Telefonda tek elle bitirilebilmeli.
 
-4. Rapor: docs/PRD.md §5'teki 10 bölüm. Her rozetin yanında kaynak kısaltması ve yılı
-   görünsün (data/sources.json). Kesinlik dili kullanma.
+4. Rapor: docs/PRD.md §5'teki 11 bölüm. Kaynak izi bu projenin en kritik sözleşmesi —
+   CLAUDE.md'deki "Kaynak izi" bölümünü uygula: her rozetin yanında kaynak kısaltması + yıl,
+   küme notunun altında noteSources künyeleri, RAPORUN EN ALTINDA kullanılan tüm kaynakların
+   tam künyesi + disclaimer + ölçüm çerçeveleri. Editoryal alanları (studyPathsTR, caution,
+   RIASEC ağırlıkları) kaynaklı veri gibi gösterme. Kesinlik dili kullanma.
 
 5. Çıktılar: PDF için print CSS, panoya kopyalama, URL hash ile paylaşım (§6).
 
