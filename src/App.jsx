@@ -1,7 +1,7 @@
 import React from 'react'
 import { SurveyProvider, useSurvey } from './state/SurveyContext.jsx'
 import { tr } from './i18n/tr.js'
-import { TopBar, SurveyNav, useFocusOnStep } from './components/survey/SurveyShell.jsx'
+import { SiteHeader, TopBar, SurveyNav, useFocusOnStep } from './components/survey/SurveyShell.jsx'
 import { FIRST_QUESTION_STEP } from './state/steps.js'
 import { Landing } from './components/landing/Landing.jsx'
 import {
@@ -67,15 +67,23 @@ function Screen() {
       <a className="skip-link" href="#main">
         {tr.app.skipToContent}
       </a>
-      <TopBar
-        progress={progress}
-        saveStatus={state.saveStatus}
-        answers={answers}
-        currentStep={state.step}
-        onJump={(step) => dispatch({ type: 'GOTO', step })}
-        onReset={confirmReset}
-        showStrip={step.kind !== 'intro'}
-      />
+      {step.kind === 'intro' ? (
+        <SiteHeader
+          hasProgress={progress > 0}
+          onStart={() => dispatch({ type: 'GOTO', step: FIRST_QUESTION_STEP })}
+          onResume={() => dispatch({ type: 'NEXT' })}
+          onReset={confirmReset}
+        />
+      ) : (
+        <TopBar
+          progress={progress}
+          saveStatus={state.saveStatus}
+          answers={answers}
+          currentStep={state.step}
+          onJump={(step) => dispatch({ type: 'GOTO', step })}
+          onReset={confirmReset}
+        />
+      )}
       <main id="main" className={`page page-${step.kind}`}>
         {body}
         {showNav ? <SurveyNav stepIndex={state.step} dispatch={dispatch} /> : null}

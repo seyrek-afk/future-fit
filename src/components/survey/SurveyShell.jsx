@@ -12,7 +12,52 @@ import { Button } from '../ui/primitives.jsx'
 import { SectionStrip } from './SectionStrip.jsx'
 import { STEPS, SECTION_COUNT, REPORT_STEP } from '../../state/steps.js'
 
-export function TopBar({ progress, saveStatus, answers, currentStep, onJump, onReset, showStrip }) {
+/**
+ * Açılış sayfası başlığı.
+ *
+ * Burada ilerleme çubuğu ve bölüm şeridi GÖSTERİLMEZ: henüz gösterilecek bir ilerleme yok,
+ * boş bir çubuk sayfayı bir araç paneline benzetip açılışı ucuzlatıyor. Yerine sağ üstte
+ * birincil eylem durur.
+ *
+ * "Sonuçları sil" yalnızca silinecek bir şey varken görünür (METHODOLOGY §8: düğme, veri
+ * bulunan her yerde erişilebilir olmalı — veri yokken bir işlevi yoktur).
+ */
+export function SiteHeader({ hasProgress, onStart, onResume, onReset }) {
+  return (
+    <header className="site-header">
+      <div className="site-header-inner">
+        <span className="brand">
+          {tr.app.title}
+          <span className="brand-sub">{tr.app.subtitle}</span>
+        </span>
+
+        <div className="site-header-actions">
+          {hasProgress ? (
+            <>
+              <button
+                type="button"
+                className="icon-btn icon-btn-danger"
+                onClick={onReset}
+                title={tr.actions.reset}
+              >
+                <Trash2 size={18} aria-hidden="true" />
+                <span className="visually-hidden">{tr.actions.reset}</span>
+              </button>
+              <Button onClick={onResume}>{tr.intro.resume}</Button>
+            </>
+          ) : (
+            <Button onClick={onStart}>
+              {tr.intro.start}
+              <ArrowRight size={18} aria-hidden="true" />
+            </Button>
+          )}
+        </div>
+      </div>
+    </header>
+  )
+}
+
+export function TopBar({ progress, saveStatus, answers, currentStep, onJump, onReset }) {
   return (
     <header className="topbar">
       <div className="topbar-inner">
@@ -49,11 +94,9 @@ export function TopBar({ progress, saveStatus, answers, currentStep, onJump, onR
         </button>
       </div>
 
-      {showStrip ? (
-        <div className="topbar-strip">
-          <SectionStrip answers={answers} currentStep={currentStep} onJump={onJump} />
-        </div>
-      ) : null}
+      <div className="topbar-strip">
+        <SectionStrip answers={answers} currentStep={currentStep} onJump={onJump} />
+      </div>
     </header>
   )
 }

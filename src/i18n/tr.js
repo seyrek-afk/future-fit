@@ -17,8 +17,8 @@ export const tr = {
   intro: {
     /* Hedef kitle 15-18 yaş. Ton doğrudan; çocuklaştırma ve pazarlama cümlesi yok.
        Hero'da uzun düz metin bulunmaz — ayrıntı Explainer'a girer. */
-    heading: 'Hangi işler sana benziyor?',
-    lead: 'Neyi yapmaktan hoşlandığını çıkarır, 2030’un iş dünyasıyla yan yana koyar. Sana meslek atamaz — nereye bakmaya değer olduğunu gösterir.',
+    heading: 'İlgilerin 2030’un becerileriyle nerede örtüşüyor?',
+    lead: 'Tutkularını WEF’in 2030 beceri setiyle örtüştürür ve sonucu radarına çizer: hangi alanlara ne kadar fit olduğunu görürsün. Meslek atamaz, yön gösterir.',
     leadMore: 'Tam olarak ne yapıyor?',
     leadDetail:
       'İlgi profilini altı tip üzerinden çıkarıp 13 meslek kümesiyle örtüşme derecesine göre sıralar. Çıkan sıralama bir hüküm değil, nereden başlayacağına dair bir işaret.',
