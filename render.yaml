@@ -10,8 +10,11 @@
 # hiçbir kişisel veri toplamaz. Buraya anahtar eklemek gerekiyorsa önce tasarımı sorgula.
 
 services:
+  # name → yayın adresi: <name>.onrender.com
+  # Bu ad panodaki servis adıyla AYNI kalmalı; ayrışırsa blueprint bir sonraki
+  # uygulamada mevcut servisi tanımaz ve ikinci bir servis oluşturur.
   - type: web
-    name: future-fit
+    name: futurefitradar
     runtime: static
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
